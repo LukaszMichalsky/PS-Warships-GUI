@@ -33,6 +33,7 @@
 	color: #DDDDDD;
 
 	font-family: &quot;Consolas&quot;;
+	font-size: 16px;
 }
 
 /* Type selectors */
@@ -43,6 +44,27 @@ QLabel {
 	qproperty-alignment: &quot;AlignCenter | AlignVCenter&quot;;
 }
 
+QPushButton {
+	background-color: #666666;
+
+	border-color: #008888;
+	border-style: solid;
+	border-width: 3px;
+
+	font-weight: bold;
+}
+
+QPushButton:hover {
+	border-color: #00FFFF;
+}
+
+QPushButton:pressed {
+	background-color: #AAAAAA;
+	border-color: #FF9900;
+
+	color: #444444;
+}
+
 /* Attribute selectors */
 
 QLabel[BORDER_BOTTOM=&quot;true&quot;] {
@@ -51,11 +73,24 @@ QLabel[BORDER_BOTTOM=&quot;true&quot;] {
 	border-bottom-width: 3px;
 }
 
+QLabel[BORDER_RIGHT=&quot;true&quot;] {
+	border-right-color: #FF9900;
+	border-right-style: solid;
+	border-right-width: 3px;
+}
+
 /* ID selectors */
 
 #labelMainTitle {
 	font-size: 30px;
 	font-weight: bold;
+}
+
+#labelMainAuthors {
+	padding-bottom: 5px;
+	padding-right: 5px;
+
+	qproperty-alignment: &quot;AlignRight | AlignBottom&quot;;
 }</string>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -86,6 +121,53 @@ QLabel[BORDER_BOTTOM=&quot;true&quot;] {
       </property>
       <property name="BORDER_BOTTOM" stdset="0">
        <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelMainAuthors">
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>380</y>
+        <width>210</width>
+        <height>100</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Łukasz MICHALSKI
+Grzegorz STICH
+Jakub WYCIŚLIK</string>
+      </property>
+      <property name="BORDER_BOTTOM" stdset="0">
+       <bool>true</bool>
+      </property>
+      <property name="BORDER_RIGHT" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnMainStartServer">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>90</y>
+        <width>200</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>START SERVER</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnMainJoinGame">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>160</y>
+        <width>200</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>JOIN GAME</string>
       </property>
      </widget>
     </widget>
