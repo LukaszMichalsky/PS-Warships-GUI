@@ -21,6 +21,7 @@ private slots:
     void on_btnMainStartServer_released();
 
     // Start server page UI controls slots
+    void on_btnStartServer_released();
     void on_btnStartServerReturn_released();
 
     // Join game page UI controls slots

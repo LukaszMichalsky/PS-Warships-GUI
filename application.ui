@@ -120,7 +120,7 @@ QLabel[STYLE_TITLE=&quot;true&quot;] {
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="pageMain">
      <widget class="QLabel" name="labelMainTitle">
@@ -411,7 +411,7 @@ Jakub WYCIŚLIK</string>
        <string>JOIN</string>
       </property>
      </widget>
-     <widget class="QLabel" name="labelJoinGamePort_3">
+     <widget class="QLabel" name="labelJoinGameName">
       <property name="geometry">
        <rect>
         <x>210</x>
@@ -430,7 +430,7 @@ Jakub WYCIŚLIK</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLineEdit" name="textJoinGamePort_3">
+     <widget class="QLineEdit" name="textJoinGameName">
       <property name="geometry">
        <rect>
         <x>430</x>
@@ -441,6 +441,46 @@ Jakub WYCIŚLIK</string>
       </property>
       <property name="placeholderText">
        <string>Username</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="pageWaitingArea">
+     <widget class="QLabel" name="labelWaiting">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>240</y>
+        <width>480</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Waiting for connection</string>
+      </property>
+      <property name="BORDER_BOTTOM" stdset="0">
+       <bool>true</bool>
+      </property>
+      <property name="BORDER_RIGHT" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelWaitingTitle">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>780</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Waiting area</string>
+      </property>
+      <property name="BORDER_BOTTOM" stdset="0">
+       <bool>true</bool>
+      </property>
+      <property name="STYLE_TITLE" stdset="0">
+       <bool>true</bool>
       </property>
      </widget>
     </widget>
