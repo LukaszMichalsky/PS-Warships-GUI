@@ -65,6 +65,17 @@ QPushButton:pressed {
 	color: #444444;
 }
 
+QLineEdit {
+	border: 0;
+
+	border-bottom-color: #FF9900;
+	border-bottom-style: solid;
+	border-bottom-width: 3px;
+
+	padding: 5px;
+	qproperty-alignment: &quot;AlignLeft | AlignVCenter&quot;;
+}
+
 /* Attribute selectors */
 
 QLabel[BORDER_BOTTOM=&quot;true&quot;] {
@@ -79,18 +90,23 @@ QLabel[BORDER_RIGHT=&quot;true&quot;] {
 	border-right-width: 3px;
 }
 
-/* ID selectors */
-
-#labelMainTitle {
+QLabel[STYLE_TITLE=&quot;true&quot;] {
 	font-size: 30px;
 	font-weight: bold;
 }
+
+/* ID selectors */
 
 #labelMainAuthors {
 	padding-bottom: 5px;
 	padding-right: 5px;
 
 	qproperty-alignment: &quot;AlignRight | AlignBottom&quot;;
+}
+
+#labelStartServerPort {
+	padding-right: 10px;
+	qproperty-alignment: &quot;AlignRight | AlignVCenter&quot;;
 }</string>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -104,7 +120,7 @@ QLabel[BORDER_RIGHT=&quot;true&quot;] {
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="pageMain">
      <widget class="QLabel" name="labelMainTitle">
@@ -120,6 +136,9 @@ QLabel[BORDER_RIGHT=&quot;true&quot;] {
        <string>Warships GUI</string>
       </property>
       <property name="BORDER_BOTTOM" stdset="0">
+       <bool>true</bool>
+      </property>
+      <property name="STYLE_TITLE" stdset="0">
        <bool>true</bool>
       </property>
      </widget>
@@ -168,6 +187,69 @@ Jakub WYCIŚLIK</string>
       </property>
       <property name="text">
        <string>JOIN GAME</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="pageStartServer">
+     <widget class="QLabel" name="labelStartServerTitle">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>780</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Start new server</string>
+      </property>
+      <property name="BORDER_BOTTOM" stdset="0">
+       <bool>true</bool>
+      </property>
+      <property name="STYLE_TITLE" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelStartServerPort">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>210</y>
+        <width>200</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Select port</string>
+      </property>
+      <property name="BORDER_RIGHT" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="textStartServerPort">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>220</y>
+        <width>150</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>3000</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnStartServer">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>280</y>
+        <width>380</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>START</string>
       </property>
      </widget>
     </widget>
