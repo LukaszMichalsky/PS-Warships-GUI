@@ -104,7 +104,7 @@ QLabel[STYLE_TITLE=&quot;true&quot;] {
 	qproperty-alignment: &quot;AlignRight | AlignBottom&quot;;
 }
 
-#labelStartServerPort {
+#labelStartServerPort, #labelJoinGamePort, #labelJoinGameAddress {
 	padding-right: 10px;
 	qproperty-alignment: &quot;AlignRight | AlignVCenter&quot;;
 }</string>
@@ -214,7 +214,7 @@ Jakub WYCIŚLIK</string>
       <property name="geometry">
        <rect>
         <x>210</x>
-        <y>210</y>
+        <y>190</y>
         <width>200</width>
         <height>50</height>
        </rect>
@@ -230,7 +230,7 @@ Jakub WYCIŚLIK</string>
       <property name="geometry">
        <rect>
         <x>430</x>
-        <y>220</y>
+        <y>200</y>
         <width>150</width>
         <height>30</height>
        </rect>
@@ -243,7 +243,7 @@ Jakub WYCIŚLIK</string>
       <property name="geometry">
        <rect>
         <x>200</x>
-        <y>280</y>
+        <y>260</y>
         <width>380</width>
         <height>50</height>
        </rect>
@@ -255,7 +255,7 @@ Jakub WYCIŚLIK</string>
      <widget class="QPushButton" name="btnStartServerReturn">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>20</x>
         <y>430</y>
         <width>200</width>
         <height>50</height>
@@ -297,6 +297,77 @@ Jakub WYCIŚLIK</string>
       </property>
       <property name="text">
        <string>RETURN</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="textJoinGamePort">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>160</y>
+        <width>150</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>3000</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelJoinGamePort">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>150</y>
+        <width>200</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Select port</string>
+      </property>
+      <property name="BORDER_RIGHT" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelJoinGameAddress">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>220</y>
+        <width>200</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Select address</string>
+      </property>
+      <property name="BORDER_RIGHT" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="textJoinGameAddress">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>230</y>
+        <width>150</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>localhost</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnJoinGame">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>290</y>
+        <width>380</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>JOIN</string>
       </property>
      </widget>
     </widget>
