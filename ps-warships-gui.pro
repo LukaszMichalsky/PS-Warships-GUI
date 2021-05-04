@@ -4,7 +4,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
-    application.cpp
+    application.cpp \
+    pages/join-game.cpp \
+    pages/main-menu.cpp \
+    pages/start-server.cpp
 
 HEADERS += \
     application.h
