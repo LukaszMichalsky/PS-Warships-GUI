@@ -90,6 +90,11 @@ QLabel[BORDER_RIGHT=&quot;true&quot;] {
 	border-right-width: 3px;
 }
 
+QLabel[STYLE_TEXT_DESC=&quot;true&quot;] {
+	padding-right: 10px;
+	qproperty-alignment: &quot;AlignRight | AlignVCenter&quot;;
+}
+
 QLabel[STYLE_TITLE=&quot;true&quot;] {
 	font-size: 30px;
 	font-weight: bold;
@@ -102,11 +107,6 @@ QLabel[STYLE_TITLE=&quot;true&quot;] {
 	padding-right: 5px;
 
 	qproperty-alignment: &quot;AlignRight | AlignBottom&quot;;
-}
-
-#labelStartServerPort, #labelJoinGamePort, #labelJoinGameAddress {
-	padding-right: 10px;
-	qproperty-alignment: &quot;AlignRight | AlignVCenter&quot;;
 }</string>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -214,7 +214,7 @@ Jakub WYCIŚLIK</string>
       <property name="geometry">
        <rect>
         <x>210</x>
-        <y>190</y>
+        <y>230</y>
         <width>200</width>
         <height>50</height>
        </rect>
@@ -225,12 +225,15 @@ Jakub WYCIŚLIK</string>
       <property name="BORDER_RIGHT" stdset="0">
        <bool>true</bool>
       </property>
+      <property name="STYLE_TEXT_DESC" stdset="0">
+       <bool>true</bool>
+      </property>
      </widget>
      <widget class="QLineEdit" name="textStartServerPort">
       <property name="geometry">
        <rect>
         <x>430</x>
-        <y>200</y>
+        <y>240</y>
         <width>150</width>
         <height>30</height>
        </rect>
@@ -243,7 +246,7 @@ Jakub WYCIŚLIK</string>
       <property name="geometry">
        <rect>
         <x>200</x>
-        <y>260</y>
+        <y>300</y>
         <width>380</width>
         <height>50</height>
        </rect>
@@ -263,6 +266,38 @@ Jakub WYCIŚLIK</string>
       </property>
       <property name="text">
        <string>RETURN</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelStartServerName">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>160</y>
+        <width>200</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Select name</string>
+      </property>
+      <property name="BORDER_RIGHT" stdset="0">
+       <bool>true</bool>
+      </property>
+      <property name="STYLE_TEXT_DESC" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="textStartServerName">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>170</y>
+        <width>150</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>Username</string>
       </property>
      </widget>
     </widget>
@@ -303,7 +338,7 @@ Jakub WYCIŚLIK</string>
       <property name="geometry">
        <rect>
         <x>430</x>
-        <y>160</y>
+        <y>190</y>
         <width>150</width>
         <height>30</height>
        </rect>
@@ -316,7 +351,7 @@ Jakub WYCIŚLIK</string>
       <property name="geometry">
        <rect>
         <x>210</x>
-        <y>150</y>
+        <y>180</y>
         <width>200</width>
         <height>50</height>
        </rect>
@@ -327,12 +362,15 @@ Jakub WYCIŚLIK</string>
       <property name="BORDER_RIGHT" stdset="0">
        <bool>true</bool>
       </property>
+      <property name="STYLE_TEXT_DESC" stdset="0">
+       <bool>true</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="labelJoinGameAddress">
       <property name="geometry">
        <rect>
         <x>210</x>
-        <y>220</y>
+        <y>250</y>
         <width>200</width>
         <height>50</height>
        </rect>
@@ -343,12 +381,15 @@ Jakub WYCIŚLIK</string>
       <property name="BORDER_RIGHT" stdset="0">
        <bool>true</bool>
       </property>
+      <property name="STYLE_TEXT_DESC" stdset="0">
+       <bool>true</bool>
+      </property>
      </widget>
      <widget class="QLineEdit" name="textJoinGameAddress">
       <property name="geometry">
        <rect>
         <x>430</x>
-        <y>230</y>
+        <y>260</y>
         <width>150</width>
         <height>30</height>
        </rect>
@@ -361,13 +402,45 @@ Jakub WYCIŚLIK</string>
       <property name="geometry">
        <rect>
         <x>200</x>
-        <y>290</y>
+        <y>320</y>
         <width>380</width>
         <height>50</height>
        </rect>
       </property>
       <property name="text">
        <string>JOIN</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelJoinGamePort_3">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>110</y>
+        <width>200</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Select name</string>
+      </property>
+      <property name="BORDER_RIGHT" stdset="0">
+       <bool>true</bool>
+      </property>
+      <property name="STYLE_TEXT_DESC" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="textJoinGamePort_3">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>120</y>
+        <width>150</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>Username</string>
       </property>
      </widget>
     </widget>
