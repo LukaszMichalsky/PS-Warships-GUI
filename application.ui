@@ -100,6 +100,10 @@ QLabel[STYLE_TITLE=&quot;true&quot;] {
 	font-weight: bold;
 }
 
+QWidget[TRANSPARENT=&quot;true&quot;] {
+	background: transparent;
+}
+
 /* ID selectors */
 
 #labelMainAuthors {
@@ -120,7 +124,7 @@ QLabel[STYLE_TITLE=&quot;true&quot;] {
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="pageMain">
      <widget class="QLabel" name="labelMainTitle">
@@ -449,7 +453,7 @@ Jakub WYCIŚLIK</string>
       <property name="geometry">
        <rect>
         <x>170</x>
-        <y>240</y>
+        <y>260</y>
         <width>480</width>
         <height>50</height>
        </rect>
@@ -481,6 +485,69 @@ Jakub WYCIŚLIK</string>
       </property>
       <property name="STYLE_TITLE" stdset="0">
        <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelWaitingUsername">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>230</y>
+        <width>480</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Logging as...</string>
+      </property>
+      <property name="TRANSPARENT" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="pageBoardBuild">
+     <widget class="QLabel" name="labelBoardBuildTitle">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>780</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Select board building mode</string>
+      </property>
+      <property name="BORDER_BOTTOM" stdset="0">
+       <bool>true</bool>
+      </property>
+      <property name="STYLE_TITLE" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnBoardBuildManual">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>90</y>
+        <width>200</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>BUILD MANUALLY</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnBoardBuildRandom">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>160</y>
+        <width>200</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>RANDOMIZE</string>
       </property>
      </widget>
     </widget>

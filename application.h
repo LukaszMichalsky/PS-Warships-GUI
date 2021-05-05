@@ -1,6 +1,10 @@
 #pragma once
 
 #include <QMainWindow>
+#include <QMessageBox>
+#include <QTcpServer>
+#include <QTcpSocket>
+#include <QTimer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -26,7 +30,13 @@ private slots:
 
     // Join game page UI controls slots
     void on_btnJoinGameReturn_released();
+    void on_btnJoinGame_released();
 
 private:
     Ui::Application *ui;
+    QString playerUsername;
+
+    QTcpServer* serverListener = nullptr;
+    QTcpSocket* serverSocket = nullptr;
+    QTcpSocket* clientSocket = nullptr;
 };
