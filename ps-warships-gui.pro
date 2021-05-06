@@ -1,19 +1,21 @@
-QT       += core gui network widgets
+QT += core gui network widgets
 CONFIG += c++11
 DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
-    main.cpp \
-    application.cpp \
-    pages/join-game.cpp \
-    pages/main-menu.cpp \
-    pages/start-server.cpp
+  logic/point.cpp \
+  main.cpp \
+  application.cpp \
+  pages/join-game.cpp \
+  pages/main-menu.cpp \
+  pages/start-server.cpp
 
 HEADERS += \
-    application.h
+  application.h \
+  logic/point.h
 
 FORMS += \
-    application.ui
+  application.ui
 
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
