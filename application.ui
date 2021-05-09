@@ -201,6 +201,19 @@ Jakub WYCIŚLIK</string>
        <string>JOIN GAME</string>
       </property>
      </widget>
+     <widget class="GraphicBoard" name="boardBuildRandom">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>90</y>
+        <width>520</width>
+        <height>270</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="pageStartServer">
      <widget class="QLabel" name="labelStartServerTitle">
@@ -596,6 +609,13 @@ Jakub WYCIŚLIK</string>
    </widget>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>GraphicBoard</class>
+   <extends>QGraphicsView</extends>
+   <header>graphic-board.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
