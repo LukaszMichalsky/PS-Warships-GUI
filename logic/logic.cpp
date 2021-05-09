@@ -199,6 +199,8 @@ ShipGroup* ShipGroup::add(Board *targetBoard, Point topLeftPoint, ship_size_t gr
     targetBoard -> setShip(newShip);
     newGroup -> shipPointers.push_back(&newShip);
   }
+
+  return newGroup;
 }
 
 bool ShipGroup::checkPosition(Board *targetBoard, Point topLeftPoint, ship_size_t groupSize, ShipDirection shipDirection) {

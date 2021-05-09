@@ -20,19 +20,25 @@ public:
   ~Application();
 
 private slots:
-  // Main menu UI controls slots
+  // Main menu UI controls slots.
   void on_btnMainJoinGame_released();
   void on_btnMainStartServer_released();
 
-  // Start server page UI controls slots
+  // Start server page UI controls slots.
   void on_btnStartServer_released();
   void on_btnStartServerReturn_released();
 
-  // Join game page UI controls slots
+  // Join game page UI controls slots.
   void on_btnJoinGameReturn_released();
   void on_btnJoinGame_released();
 
-private:
+  // Board building mode selection page UI controls slots.
+  void on_btnBoardBuildRandom_released();
+
+  // Board random builder UI controls slots.
+  void on_btnBuildRandomReturn_released();
+
+  private:
   Ui::Application *ui;
   QString playerUsername;
 

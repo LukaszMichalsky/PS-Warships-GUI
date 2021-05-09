@@ -7,6 +7,8 @@ SOURCES += \
   logic/point.cpp \
   main.cpp \
   application.cpp \
+  pages/board-build-random.cpp \
+  pages/board-build.cpp \
   pages/join-game.cpp \
   pages/main-menu.cpp \
   pages/start-server.cpp
