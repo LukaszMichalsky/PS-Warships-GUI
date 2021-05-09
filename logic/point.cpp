@@ -1,21 +1,21 @@
 #include "point.h"
 
-Point::Point(short newX, short newY) : X(newX), Y(newY) {}
+Point::Point(size newX, size newY) : X(newX), Y(newY) {}
 Point::~Point() {}
 
-short Point::getX() {
+size Point::getX() {
   return X;
 }
 
-short Point::getY() {
+size Point::getY() {
   return Y;
 }
 
-void Point::setX(short newX) {
+void Point::setX(size newX) {
   X = newX;
 }
 
-void Point::setY(short newY) {
+void Point::setY(size newY) {
   Y = newY;
 }
 

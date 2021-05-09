@@ -1,19 +1,21 @@
 #pragma once
 
+using size = unsigned char;
+
 class Point {
   private:
-    short X = 0;
-    short Y = 0;
+    size X = 0;
+    size Y = 0;
 
   public:
-    Point(short newX, short newY);
+    Point(size newX, size newY);
     ~Point();
 
-    short getX();
-    short getY();
+    size getX();
+    size getY();
 
-    void setX(short newX);
-    void setY(short newY);
+    void setX(size newX);
+    void setY(size newY);
 
     bool equals(const Point& otherPoint);
 };

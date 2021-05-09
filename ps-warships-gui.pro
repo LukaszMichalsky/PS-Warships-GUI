@@ -3,6 +3,7 @@ CONFIG += c++11
 DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
+  logic/logic.cpp \
   logic/point.cpp \
   main.cpp \
   application.cpp \
@@ -12,6 +13,7 @@ SOURCES += \
 
 HEADERS += \
   application.h \
+  logic/logic.h \
   logic/point.h
 
 FORMS += \
