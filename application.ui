@@ -132,7 +132,7 @@ QWidget[TRANSPARENT=&quot;true&quot;] {
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="pageMain">
      <widget class="QLabel" name="labelMainTitle">
@@ -199,19 +199,6 @@ Jakub WYCIŚLIK</string>
       </property>
       <property name="text">
        <string>JOIN GAME</string>
-      </property>
-     </widget>
-     <widget class="GraphicBoard" name="boardBuildRandom">
-      <property name="geometry">
-       <rect>
-        <x>260</x>
-        <y>90</y>
-        <width>520</width>
-        <height>270</height>
-       </rect>
-      </property>
-      <property name="mouseTracking">
-       <bool>true</bool>
       </property>
      </widget>
     </widget>
@@ -603,6 +590,25 @@ Jakub WYCIŚLIK</string>
       </property>
       <property name="text">
        <string>RETURN</string>
+      </property>
+     </widget>
+     <widget class="GraphicBoard" name="boardBuildRandom">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>90</y>
+        <width>300</width>
+        <height>300</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
       </property>
      </widget>
     </widget>

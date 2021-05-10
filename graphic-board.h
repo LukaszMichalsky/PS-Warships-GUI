@@ -1,5 +1,7 @@
 #pragma once
 
+#include "logic/logic.h"
+
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QMouseEvent>
@@ -11,6 +13,8 @@ class GraphicBoard : public QGraphicsView {
   public:
     GraphicBoard(QWidget* parent = nullptr);
     GraphicBoard(QGraphicsScene* scene, QWidget* parent = nullptr);
+
+    void drawBoard(const Board* targetBoard);
 
   protected:
     void mouseMoveEvent(QMouseEvent *event) override;
