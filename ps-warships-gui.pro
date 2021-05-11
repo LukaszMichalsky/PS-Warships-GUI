@@ -4,6 +4,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
   graphic-board.cpp \
+  graphic-board/get-clicked-point.cpp \
+  graphic-board/init-board.cpp \
   logic/logic.cpp \
   logic/point.cpp \
   main.cpp \
@@ -22,6 +24,9 @@ HEADERS += \
 
 FORMS += \
   application.ui
+
+RESOURCES += \
+  resources.qrc
 
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
