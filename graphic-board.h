@@ -3,9 +3,13 @@
 #include "logic/logic.h"
 
 #include <QGraphicsItemGroup>
+#include <QGraphicsPixmapItem>
+#include <QGraphicsRectItem>
 #include <QGraphicsScene>
+#include <QGraphicsTextItem>
 #include <QGraphicsView>
 #include <QMouseEvent>
+#include <QVector>
 
 class GraphicBoard : public QGraphicsView {
   private:
@@ -16,11 +20,17 @@ class GraphicBoard : public QGraphicsView {
     static const quint16 totalFieldSize;
     static const quint16 totalBoardLength;
 
+    static QVector<QPixmap*> horizontalShips;
+    static QVector<QPixmap*> verticalShips;
+    static QPixmap* waterTile;
+
     QGraphicsItemGroup* groupBoardItems = nullptr;
     QGraphicsItemGroup* groupShips = nullptr;
+    QVector<ShipGroup*> renderedGroups;
 
     void initBoard();
     void initScene();
+    void initResources();
 
   public:
     GraphicBoard(QWidget* parent = nullptr);

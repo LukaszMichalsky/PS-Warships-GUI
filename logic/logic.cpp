@@ -4,8 +4,7 @@
 // BOARD CLASS //
 /////////////////
 
-Board::Board(ship_size_t newSize) {
-  boardSize = newSize;
+Board::Board() {
   boardTable = new Ship* [boardSize];
 
   for (board_size_t x = 0; x < boardSize; x++) {
@@ -26,14 +25,14 @@ Board::~Board() {
   }
 }
 
-bool Board::checkPointExists(Point point) {
+bool Board::checkPointExists(Point point) const {
   short x = point.getX();
   short y = point.getY();
 
   return (x >= 0 && x < boardSize) && (y >= 0 && y < boardSize);
 }
 
-Ship* Board::getShipPointer(Point point) {
+Ship* Board::getShipPointer(Point point) const {
   if (checkPointExists(point) == true) {
     board_size_t x = point.getX();
     board_size_t y = point.getY();
@@ -42,10 +41,6 @@ Ship* Board::getShipPointer(Point point) {
   }
 
   return nullptr;
-}
-
-board_size_t Board::getBoardSize() {
-  return boardSize;
 }
 
 bool Board::setShip(Ship newShip) {
@@ -117,8 +112,8 @@ QVector<Ship*> Board::getNeighborsPointers(Point point) {
   board_size_t pointY = point.getY();
   QVector<Ship*> neighbors = QVector<Ship*>();
 
-  for (board_size_t x = -1; x < 2; x++) {
-    for (board_size_t y = -1; y < 2; y++) {
+  for (short x = -1; x < 2; x++) {
+    for (short y = -1; y < 2; y++) {
       neighbors.push_back(getShipPointer(Point(pointX + x, pointY + y)));
     }
   }
@@ -166,12 +161,14 @@ ShipGroup* ShipGroup::add(Board *targetBoard, Point topLeftPoint, ship_size_t gr
   board_size_t pointY = topLeftPoint.getY();
 
   ShipGroup* newGroup = nullptr;
-  if (targetBoard == nullptr || groupSize == 0) return nullptr;
+  if (targetBoard == nullptr || groupSize < 1 || groupSize > 4) return nullptr;
 
   if (checkPosition(targetBoard, topLeftPoint, groupSize, shipDirection) == false) {
     return nullptr;
   } else {
     newGroup = new ShipGroup();
+
+    newGroup -> groupDirection = shipDirection;
     newGroup -> groupSize = groupSize;
   }
 
@@ -192,7 +189,7 @@ ShipGroup* ShipGroup::add(Board *targetBoard, Point topLeftPoint, ship_size_t gr
   }
 
   for (board_size_t s = 0; s < groupSize; s++) {
-    Point newShipPoint = Point(pointX + deltaX, pointY + deltaY);
+    Point newShipPoint = Point(pointX + deltaX * s, pointY + deltaY * s);
     Ship newShip = Ship(newShipPoint, ShipState::STATE_NORMAL);
 
     newShip.setShipGroup(newGroup);
@@ -225,7 +222,7 @@ bool ShipGroup::checkPosition(Board *targetBoard, Point topLeftPoint, ship_size_
   }
 
   for (board_size_t s = 0; s < groupSize; s++) {
-    if (targetBoard -> isFieldValidForNewShip(Point(pointX + deltaX, pointY + deltaY))) {
+    if (targetBoard -> isFieldValidForNewShip(Point(pointX + deltaX * s, pointY + deltaY * s)) == false) {
       return false;
     }
   }

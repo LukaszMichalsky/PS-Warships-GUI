@@ -5,5 +5,7 @@
         <file>resources/images/V1.png</file>
         <file>resources/images/H2.png</file>
         <file>resources/images/V2.png</file>
+        <file>resources/images/H3.png</file>
+        <file>resources/images/V3.png</file>
     </qresource>
 </RCC>

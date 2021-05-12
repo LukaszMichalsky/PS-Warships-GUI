@@ -6,6 +6,8 @@ SOURCES += \
   graphic-board.cpp \
   graphic-board/get-clicked-point.cpp \
   graphic-board/init-board.cpp \
+  graphic-board/init-resources.cpp \
+  graphic-board/redraw-board.cpp \
   logic/logic.cpp \
   logic/point.cpp \
   main.cpp \

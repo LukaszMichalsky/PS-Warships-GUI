@@ -8,17 +8,17 @@
 using board_size_t = quint8;
 using ship_size_t = quint8;
 
-enum class ShipDirection {
-  DIRECTION_HORIZONTAL,
-  DIRECTION_VERTICAL
+enum class ShipDirection : int {
+  DIRECTION_HORIZONTAL = 0,
+  DIRECTION_VERTICAL = 1
 };
 
-enum class ShipState {
-  STATE_EMPTY,
-  STATE_DROWNED,
-  STATE_HIT,
-  STATE_MISSED,
-  STATE_NORMAL
+enum class ShipState : int {
+  STATE_EMPTY = 0,
+  STATE_DROWNED = 1,
+  STATE_HIT = 2,
+  STATE_MISSED = 3,
+  STATE_NORMAL = 4
 };
 
 class Board;
@@ -28,29 +28,27 @@ class ShipGroup;
 class Board {
   private:
     Ship** boardTable = nullptr;
-    board_size_t boardSize = 0;
+    board_size_t boardSize = 10;
 
-    bool checkPointExists(Point point);
+    bool checkPointExists(Point point) const;
     bool setShip(Ship newShip);
 
     friend class Ship;
     friend class ShipGroup;
 
   public:
-    Board(board_size_t newSize);
+    Board();
    ~Board();
 
     Board(const Board&) = delete;
     Board& operator= (const Board&) = delete;
-
-    Ship* getShipPointer(Point point);
-    board_size_t getBoardSize();
 
     void fillShips(ShipState newState);
     bool isFieldValidForNewShip(Point point);
 
     bool shoot(bool& wasTargetHit, Point point);
     QVector<Ship*> getNeighborsPointers(Point point);
+    Ship* getShipPointer(Point point) const;
 };
 
 class Ship {

@@ -1,17 +1,15 @@
 #include "graphic-board.h"
 
-#include <QGraphicsPixmapItem>
-#include <QGraphicsRectItem>
-#include <QGraphicsTextItem>
-
 void GraphicBoard::initBoard() {
   const QVector<QString> coordinateLetters({"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"});
   const QVector<QString> coordinateNumbers({" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10"});
   const QFont coordinateFont = QFont("Consolas", 10, QFont::Bold, false);
-  const QPixmap waterTile = QPixmap(":/resources/images/water.png");
 
   groupBoardItems = scene() -> createItemGroup({});
   groupShips = scene() -> createItemGroup({});
+
+  groupBoardItems -> setZValue(1);
+  groupShips -> setZValue(2);
 
   for (quint8 i = 0; i < 9; i++) { // Drawing borders.
     QGraphicsRectItem* borderItemVertical = new QGraphicsRectItem(totalFieldSize * i + FIELD_SIZE, 0, FIELD_BORDER_SIZE, totalBoardLength);
@@ -28,7 +26,7 @@ void GraphicBoard::initBoard() {
 
   for (quint8 x = 0; x < 10; x++) { // Drawing water tiles.
     for (quint8 y = 0; y < 10; y++) {
-      QGraphicsPixmapItem* waterItem = new QGraphicsPixmapItem(waterTile);
+      QGraphicsPixmapItem* waterItem = new QGraphicsPixmapItem(*waterTile);
       waterItem -> setPos(totalFieldSize * x, totalFieldSize * y);
       groupBoardItems -> addToGroup(waterItem);
     }
