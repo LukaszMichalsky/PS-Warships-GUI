@@ -40,4 +40,16 @@ void Application::randomizeBoard(Board &targetBoard) {
       }
     }
   }
+
+  for (int i = 0; i < (int) ShipCount::SHIP_QUADRUPLE; i++) {
+    while (true) {
+      newShipPoint.setX(QRandomGenerator::global() -> bounded(0, 10));
+      newShipPoint.setY(QRandomGenerator::global() -> bounded(0, 10));
+      newDirection = (QRandomGenerator::global() -> bounded(0, 2) == 0) ? ShipDirection::DIRECTION_HORIZONTAL : ShipDirection::DIRECTION_VERTICAL;
+
+      if (ShipGroup::add(&targetBoard, newShipPoint, 4, newDirection) != nullptr) {
+        break;
+      }
+    }
+  }
 }
