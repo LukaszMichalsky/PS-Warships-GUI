@@ -8,6 +8,13 @@
 using board_size_t = quint8;
 using ship_size_t = quint8;
 
+enum class ShipCount : int {
+  SHIP_SINGLE = 4,
+  SHIP_DOUBLE = 3,
+  SHIP_TRIPLE = 2,
+  SHIP_QUADRUPLE = 1
+};
+
 enum class ShipDirection : int {
   DIRECTION_HORIZONTAL = 0,
   DIRECTION_VERTICAL = 1

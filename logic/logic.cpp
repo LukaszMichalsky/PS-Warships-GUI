@@ -67,14 +67,18 @@ void Board::fillShips(ShipState newState) {
 bool Board::isFieldValidForNewShip(Point point) {
   QVector<Ship*> neighbors = getNeighborsPointers(point);
 
-  for (board_size_t s = 0; s < neighbors.size(); s++) {
-    Ship* ship = neighbors[s];
+  if (checkPointExists(point) == true) {
+    for (board_size_t s = 0; s < neighbors.size(); s++) {
+      Ship* ship = neighbors[s];
 
-    if (ship != nullptr) {
-      if (ship -> getShipState() != ShipState::STATE_EMPTY) {
-        return false;
+      if (ship != nullptr) {
+        if (ship -> getShipState() != ShipState::STATE_EMPTY) {
+          return false;
+        }
       }
     }
+  } else {
+    return false;
   }
 
   return true;

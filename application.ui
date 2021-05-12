@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>Application</class>
  <widget class="QMainWindow" name="Application">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -73,6 +76,13 @@ QPushButton:pressed {
 	color: #444444;
 }
 
+QPushButton:disabled {
+	background-color: #AAAAAA;
+	border-color: #000000;
+
+	color: #444444;
+}
+
 QLineEdit {
 	border: 0;
 
@@ -132,7 +142,7 @@ QWidget[TRANSPARENT=&quot;true&quot;] {
      </rect>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="pageMain">
      <widget class="QLabel" name="labelMainTitle">
@@ -609,6 +619,22 @@ Jakub WYCIŚLIK</string>
       </property>
       <property name="horizontalScrollBarPolicy">
        <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnBuildRandomRerandomize">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>430</y>
+        <width>200</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>RE-RANDOMIZE</string>
       </property>
      </widget>
     </widget>

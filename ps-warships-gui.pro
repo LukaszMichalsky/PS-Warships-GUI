@@ -10,6 +10,7 @@ SOURCES += \
   graphic-board/redraw-board.cpp \
   logic/logic.cpp \
   logic/point.cpp \
+  logic/randomize-board.cpp \
   main.cpp \
   application.cpp \
   pages/board-build-random.cpp \
