@@ -4,6 +4,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
   graphic-board.cpp \
+  graphic-board/clickedWithState/clicked-creating.cpp \
+  graphic-board/clickedWithState/clicked-playing.cpp \
   graphic-board/get-clicked-point.cpp \
   graphic-board/ghost-mode.cpp \
   graphic-board/init-board.cpp \

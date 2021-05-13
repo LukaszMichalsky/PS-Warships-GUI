@@ -703,6 +703,22 @@ Jakub WYCIŚLIK</string>
        <string>Press R to rotate ships</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="btnBuildManualContinue">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>430</y>
+        <width>200</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>CONTINUE</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>

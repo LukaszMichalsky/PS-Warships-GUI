@@ -8,6 +8,7 @@ void GraphicBoard::redrawBoard(const Board &targetBoard) {
   }
 
   Point shipPoint(0, 0);
+  renderedGroups.clear();
 
   for (short x = 0; x < 10; x++) {
     for (short y = 0; y < 10; y++) {

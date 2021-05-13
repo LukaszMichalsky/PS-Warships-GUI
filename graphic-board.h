@@ -12,7 +12,15 @@
 #include <QMouseEvent>
 #include <QVector>
 
+enum class GraphicBoardState : int {
+  STATE_NONE = 0,
+  STATE_CREATING = 1,
+  STATE_PLAYING = 2
+};
+
 class GraphicBoard : public QGraphicsView {
+  Q_OBJECT
+
   private:
     static const quint16 FIELD_SIZE;
     static const quint16 FIELD_BORDER_SIZE;
@@ -35,8 +43,15 @@ class GraphicBoard : public QGraphicsView {
     void initScene();
     void initResources();
 
-    Board testBoard;
+    Board manualBuildBoard;
+    quint8 manualBuildShipsLeft = 1;
+    quint8 manualBuildCurrentSize = 4;
+
     QMouseEvent* lastEvent = nullptr;
+    GraphicBoardState boardState = GraphicBoardState::STATE_NONE;
+
+    void clickStateCreating(QMouseEvent* event);
+    void clickStatePlaying(QMouseEvent* event);
 
   public:
     GraphicBoard(QWidget* parent = nullptr);
@@ -48,6 +63,8 @@ class GraphicBoard : public QGraphicsView {
 
     bool getClickedPoint(QMouseEvent *inputEvent, Point& outputPoint);
     void redrawBoard(const Board& targetBoard);
+    void setBoardState(GraphicBoardState newState);
+
     void setGhostMode(ship_size_t shipSize, ShipDirection shipDirection);
     void disableGhostMode();
 
@@ -55,4 +72,7 @@ class GraphicBoard : public QGraphicsView {
     void keyReleaseEvent(QKeyEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
+
+  signals:
+    void manualBoardBuildFinished();
 };

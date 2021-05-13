@@ -22,6 +22,10 @@ void GraphicBoard::initScene() {
   initBoard();
 }
 
+void GraphicBoard::setBoardState(GraphicBoardState newState) {
+  boardState = newState;
+}
+
 void GraphicBoard::keyReleaseEvent(QKeyEvent *event) {
   if (ghostModeEnabled == true) {
     if (event -> key() == Qt::Key::Key_R) {
@@ -31,7 +35,9 @@ void GraphicBoard::keyReleaseEvent(QKeyEvent *event) {
         setGhostMode(ghostModeCurrentSize, ShipDirection::DIRECTION_HORIZONTAL);
       }
 
-      mouseMoveEvent(lastEvent);
+      if (lastEvent != nullptr) {
+        mouseMoveEvent(lastEvent);
+      }
     }
   }
 }
@@ -50,7 +56,7 @@ void GraphicBoard::mouseMoveEvent(QMouseEvent *event) {
 
       if (getClickedPoint(event, currentField) == true) {
         if (currentField.equals(lastField) == false) {
-          if (ShipGroup::checkPosition(&testBoard, currentField, ghostModeCurrentSize, ghostModeCurrentDirection) == true) {
+          if (ShipGroup::checkPosition(&manualBuildBoard, currentField, ghostModeCurrentSize, ghostModeCurrentDirection) == true) {
             QGraphicsPixmapItem* newGhostShip = new QGraphicsPixmapItem(*ghostModeCurrentShip);
             newGhostShip -> setPos(currentField.getX() * totalFieldSize, currentField.getY() * totalFieldSize);
             groupGhostItems -> addToGroup(newGhostShip);
@@ -66,4 +72,16 @@ void GraphicBoard::mouseMoveEvent(QMouseEvent *event) {
   }
 }
 
-void GraphicBoard::mouseReleaseEvent(QMouseEvent *event) {}
+void GraphicBoard::mouseReleaseEvent(QMouseEvent *event) {
+  switch (boardState) {
+    case GraphicBoardState::STATE_NONE: {
+      // Do nothing
+    } case GraphicBoardState::STATE_PLAYING: {
+      clickStatePlaying(event);
+      break;
+    } case GraphicBoardState::STATE_CREATING: {
+      clickStateCreating(event);
+      break;
+    }
+  }
+}
