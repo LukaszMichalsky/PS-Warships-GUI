@@ -17,11 +17,8 @@ bool GraphicBoard::getClickedPoint(QMouseEvent *inputEvent, Point& outputPoint) 
     quint8 internalY = boardY % totalFieldSize;
 
     if (internalX < FIELD_SIZE && internalY < FIELD_SIZE) {
-      quint8 resultX = fieldX + 1;
-      quint8 resultY = fieldY + 1;
-
-      outputPoint.setX(resultX);
-      outputPoint.setY(resultY);
+      outputPoint.setX(fieldX);
+      outputPoint.setY(fieldY);
 
       clicked = true;
     }

@@ -22,6 +22,48 @@ void GraphicBoard::initScene() {
   initBoard();
 }
 
-void GraphicBoard::mouseMoveEvent(QMouseEvent *event) {}
+void GraphicBoard::keyReleaseEvent(QKeyEvent *event) {
+  if (ghostModeEnabled == true) {
+    if (event -> key() == Qt::Key::Key_R) {
+      if (ghostModeCurrentDirection == ShipDirection::DIRECTION_HORIZONTAL) {
+        setGhostMode(ghostModeCurrentSize, ShipDirection::DIRECTION_VERTICAL);
+      } else {
+        setGhostMode(ghostModeCurrentSize, ShipDirection::DIRECTION_HORIZONTAL);
+      }
+
+      mouseMoveEvent(lastEvent);
+    }
+  }
+}
+
+void GraphicBoard::mouseMoveEvent(QMouseEvent *event) {
+  if (ghostModeEnabled == true) {
+    if (ghostModeCurrentShip != nullptr) {
+      Point currentField(0, 0);
+      Point lastField(-1, -1);
+
+      for (QGraphicsItem* ghostShip : groupGhostItems -> childItems()) {
+        if (ghostShip != nullptr) {
+          delete ghostShip;
+        }
+      }
+
+      if (getClickedPoint(event, currentField) == true) {
+        if (currentField.equals(lastField) == false) {
+          if (ShipGroup::checkPosition(&testBoard, currentField, ghostModeCurrentSize, ghostModeCurrentDirection) == true) {
+            QGraphicsPixmapItem* newGhostShip = new QGraphicsPixmapItem(*ghostModeCurrentShip);
+            newGhostShip -> setPos(currentField.getX() * totalFieldSize, currentField.getY() * totalFieldSize);
+            groupGhostItems -> addToGroup(newGhostShip);
+
+            lastField.setX(currentField.getX());
+            lastField.setY(currentField.getY());
+
+            lastEvent = event;
+          }
+        }
+      }
+    }
+  }
+}
 
 void GraphicBoard::mouseReleaseEvent(QMouseEvent *event) {}

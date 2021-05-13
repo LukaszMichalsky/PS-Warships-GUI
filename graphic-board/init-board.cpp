@@ -7,9 +7,13 @@ void GraphicBoard::initBoard() {
 
   groupBoardItems = scene() -> createItemGroup({});
   groupShips = scene() -> createItemGroup({});
+  groupGhostItems = scene() -> createItemGroup({});
 
   groupBoardItems -> setZValue(1);
   groupShips -> setZValue(2);
+  groupGhostItems -> setZValue(3);
+
+  groupGhostItems -> setOpacity(0.5);
 
   for (quint8 i = 0; i < 9; i++) { // Drawing borders.
     QGraphicsRectItem* borderItemVertical = new QGraphicsRectItem(totalFieldSize * i + FIELD_SIZE, 0, FIELD_BORDER_SIZE, totalBoardLength);

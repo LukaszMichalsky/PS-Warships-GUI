@@ -38,10 +38,14 @@ class Application : public QMainWindow {
 
     // Board building mode selection page UI controls slots.
     void on_btnBoardBuildRandom_released();
+    void on_btnBoardBuildManual_released();
 
     // Board random builder UI controls slots.
     void on_btnBuildRandomReturn_released();
     void on_btnBuildRandomRerandomize_released();
+
+    // Board manual builder UI controls slots.
+    void on_btnBuildManualReturn_released();
 
   private:
     Ui::Application *ui;

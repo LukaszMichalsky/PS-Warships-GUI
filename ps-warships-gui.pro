@@ -5,6 +5,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
   graphic-board.cpp \
   graphic-board/get-clicked-point.cpp \
+  graphic-board/ghost-mode.cpp \
   graphic-board/init-board.cpp \
   graphic-board/init-resources.cpp \
   graphic-board/redraw-board.cpp \
@@ -13,6 +14,7 @@ SOURCES += \
   logic/randomize-board.cpp \
   main.cpp \
   application.cpp \
+  pages/board-build-manual.cpp \
   pages/board-build-random.cpp \
   pages/board-build.cpp \
   pages/join-game.cpp \
