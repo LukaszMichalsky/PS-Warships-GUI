@@ -26,6 +26,10 @@ void GraphicBoard::setBoardState(GraphicBoardState newState) {
   boardState = newState;
 }
 
+Board* GraphicBoard::getManualBoard() {
+  return &manualBuildBoard;
+}
+
 void GraphicBoard::keyReleaseEvent(QKeyEvent *event) {
   if (ghostModeEnabled == true) {
     if (event -> key() == Qt::Key::Key_R) {

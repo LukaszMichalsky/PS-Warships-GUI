@@ -6,15 +6,17 @@ void Application::on_btnBuildRandomReturn_released() {
 }
 
 void Application::on_btnBuildRandomRerandomize_released() {
-  Board randomizedBoard;
+  Board* randomizedBoard = new Board();
 
   ui -> btnBuildRandomReturn -> setDisabled(true);
   ui -> btnBuildRandomRerandomize -> setDisabled(true);
-  randomizeBoard(randomizedBoard);
+  randomizeBoard(*randomizedBoard);
 
   ui -> btnBuildRandomReturn -> setDisabled(false);
   ui -> btnBuildRandomRerandomize -> setDisabled(false);
-  ui -> boardBuildRandom -> redrawBoard(randomizedBoard);
+  ui -> boardBuildRandom -> redrawBoard(*randomizedBoard);
+
+  boardMy = randomizedBoard;
 }
 
 void Application::on_btnBuildRandomContinue_released() {
@@ -23,10 +25,5 @@ void Application::on_btnBuildRandomContinue_released() {
   ui -> labelWaitingUsername -> setText("Waiting for second player");
   ui -> labelWaiting -> setText("...");
 
-  QByteArray myUsername = playerUsername.toUtf8();
-  sendNetworkData(myUsername);
-  QString playerUsername = QString::fromUtf8(waitForNetworkData());
-
-  ui -> labelWaitingUsername -> setText(QString("Player %1 is ready!").arg(playerUsername));
-  ui -> labelWaiting -> setText("Starting game...");
+  startGame();
 }

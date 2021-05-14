@@ -64,6 +64,7 @@ class GraphicBoard : public QGraphicsView {
     bool getClickedPoint(QMouseEvent *inputEvent, Point& outputPoint);
     void redrawBoard(const Board& targetBoard);
     void setBoardState(GraphicBoardState newState);
+    Board* getManualBoard();
 
     void setGhostMode(ship_size_t shipSize, ShipDirection shipDirection);
     void disableGhostMode();

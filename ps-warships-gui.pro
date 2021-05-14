@@ -15,6 +15,7 @@ SOURCES += \
   logic/network-data.cpp \
   logic/point.cpp \
   logic/randomize-board.cpp \
+  logic/start-game.cpp \
   main.cpp \
   application.cpp \
   pages/board-build-manual.cpp \

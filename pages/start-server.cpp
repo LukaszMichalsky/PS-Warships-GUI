@@ -27,7 +27,7 @@ void Application::on_btnStartServer_released() {
     clientSocket = serverListener -> nextPendingConnection();
     ui -> labelWaiting -> setText("Player connected!");
 
-    QTimer::singleShot(1500, [=] () {
+    QTimer::singleShot(1500, [&] () {
       ui -> pagesWidget -> setCurrentIndex(4); // Go to board building mode selection page
     });
   });

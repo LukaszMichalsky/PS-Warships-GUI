@@ -11,10 +11,7 @@ void Application::on_btnBuildManualContinue_released() {
   ui -> labelWaitingUsername -> setText("Waiting for second player");
   ui -> labelWaiting -> setText("...");
 
-  QByteArray myUsername = playerUsername.toUtf8();
-  sendNetworkData(myUsername);
-  QString playerUsername = QString::fromUtf8(waitForNetworkData());
+  boardMy = ui -> boardBuildManual -> getManualBoard();
 
-  ui -> labelWaitingUsername -> setText(QString("Player %1 is ready!").arg(playerUsername));
-  ui -> labelWaiting -> setText("Starting game...");
+  startGame();
 }

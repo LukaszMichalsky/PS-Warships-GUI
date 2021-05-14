@@ -52,11 +52,17 @@ class Application : public QMainWindow {
   private:
     Ui::Application *ui;
     QString playerUsername;
+    QString otherPlayerUsername;
 
     QTcpServer* serverListener = nullptr;
     QTcpSocket* clientSocket = nullptr;
 
     void randomizeBoard(Board& targetBoard);
+    void startGame();
+
     QByteArray waitForNetworkData();
     void sendNetworkData(const QByteArray &data);
+
+    Board* boardMy = nullptr;
+    Board* boardOpponent = new Board();
 };

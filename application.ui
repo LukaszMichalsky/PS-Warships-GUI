@@ -142,7 +142,7 @@ QWidget[TRANSPARENT=&quot;true&quot;] {
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="pageMain">
      <widget class="QLabel" name="labelMainTitle">
@@ -730,6 +730,91 @@ Jakub WYCIŚLIK</string>
       </property>
       <property name="text">
        <string>CONTINUE</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="pageGame">
+     <widget class="QLabel" name="labelGameTitle">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>780</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Game phase</string>
+      </property>
+      <property name="BORDER_BOTTOM" stdset="0">
+       <bool>true</bool>
+      </property>
+      <property name="STYLE_TITLE" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="GraphicBoard" name="boardGameMy">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>70</y>
+        <width>340</width>
+        <height>340</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+     </widget>
+     <widget class="GraphicBoard" name="boardGameOpponent">
+      <property name="geometry">
+       <rect>
+        <x>440</x>
+        <y>70</y>
+        <width>340</width>
+        <height>340</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelGameMy">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>410</y>
+        <width>340</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Your board</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelGameOpponent">
+      <property name="geometry">
+       <rect>
+        <x>440</x>
+        <y>410</y>
+        <width>340</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Opponent's board</string>
       </property>
      </widget>
     </widget>
