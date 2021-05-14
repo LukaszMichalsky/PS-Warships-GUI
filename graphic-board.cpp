@@ -8,6 +8,10 @@ const quint16 GraphicBoard::totalFieldSize = FIELD_SIZE + FIELD_BORDER_SIZE;
 const quint16 GraphicBoard::totalBoardLength = FIELD_SIZE * 10 + FIELD_BORDER_SIZE * 9;
 
 QPixmap* GraphicBoard::waterTile = nullptr;
+QPixmap* GraphicBoard::splashHit = nullptr;
+QPixmap* GraphicBoard::splashMiss = nullptr;
+QPixmap* GraphicBoard::splashDrowned = nullptr;
+
 QVector<QPixmap*> GraphicBoard::horizontalShips(4, nullptr);
 QVector<QPixmap*> GraphicBoard::verticalShips(4, nullptr);
 

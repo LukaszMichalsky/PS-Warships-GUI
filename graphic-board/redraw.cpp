@@ -1,6 +1,6 @@
 #include "graphic-board.h"
 
-void GraphicBoard::redrawBoard(const Board &targetBoard) {
+void GraphicBoard::redrawShips(const Board &targetBoard) {
   for (QGraphicsItem* shipItem : groupShips -> childItems()) { // Clearing board from existing items.
     if (shipItem != nullptr) {
       delete shipItem;
@@ -39,6 +39,44 @@ void GraphicBoard::redrawBoard(const Board &targetBoard) {
             groupShips -> addToGroup(newShip);
           }
         }
+      }
+    }
+  }
+}
+
+void GraphicBoard::redrawShoots(const Board &targetBoard) {
+  for (QGraphicsItem* shootItem : groupShoots -> childItems()) {
+    if (shootItem != nullptr) {
+      delete shootItem;
+    }
+  }
+
+  Point shootPoint(0, 0);
+
+  for (short x = 0; x < 10; x++) {
+    for (short y = 0; y < 10; y++) {
+      shootPoint.setX(x);
+      shootPoint.setY(y);
+
+      Ship* fieldPointer = targetBoard.getShipPointer(shootPoint);
+      ShipState fieldState = fieldPointer -> getShipState();
+      QGraphicsPixmapItem* splashItem = nullptr;
+
+      switch ((int) fieldState) {
+        case (int) ShipState::STATE_HIT: {
+          splashItem = new QGraphicsPixmapItem(*splashHit); perror("HIT");
+          break;
+        } case (int) ShipState::STATE_MISSED: {
+          splashItem = new QGraphicsPixmapItem(*splashMiss); perror("MISSED");
+          break;
+        } case (int) ShipState::STATE_DROWNED: {
+          splashItem = new QGraphicsPixmapItem(*splashDrowned); perror("DROWNED");
+        }
+      }
+
+      if (splashItem != nullptr) {
+        splashItem -> setPos(x * totalFieldSize, y * totalFieldSize);
+        groupShoots -> addToGroup(splashItem);
       }
     }
   }

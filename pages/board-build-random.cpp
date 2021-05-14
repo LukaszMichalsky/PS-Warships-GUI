@@ -14,7 +14,7 @@ void Application::on_btnBuildRandomRerandomize_released() {
 
   ui -> btnBuildRandomReturn -> setDisabled(false);
   ui -> btnBuildRandomRerandomize -> setDisabled(false);
-  ui -> boardBuildRandom -> redrawBoard(*randomizedBoard);
+  ui -> boardBuildRandom -> redrawShips(*randomizedBoard);
 
   boardMy = randomizedBoard;
 }

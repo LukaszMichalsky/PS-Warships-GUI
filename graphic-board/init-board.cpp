@@ -8,10 +8,12 @@ void GraphicBoard::initBoard() {
   groupBoardItems = scene() -> createItemGroup({});
   groupShips = scene() -> createItemGroup({});
   groupGhostItems = scene() -> createItemGroup({});
+  groupShoots = scene() -> createItemGroup({});
 
   groupBoardItems -> setZValue(1);
   groupShips -> setZValue(2);
   groupGhostItems -> setZValue(3);
+  groupShoots -> setZValue(4);
 
   groupGhostItems -> setOpacity(0.5);
 

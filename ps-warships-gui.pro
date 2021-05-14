@@ -10,7 +10,7 @@ SOURCES += \
   graphic-board/ghost-mode.cpp \
   graphic-board/init-board.cpp \
   graphic-board/init-resources.cpp \
-  graphic-board/redraw-board.cpp \
+  graphic-board/redraw.cpp \
   logic/logic.cpp \
   logic/network-data.cpp \
   logic/point.cpp \

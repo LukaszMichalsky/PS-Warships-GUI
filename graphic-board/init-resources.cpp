@@ -2,6 +2,9 @@
 
 void GraphicBoard::initResources() {
   if (waterTile == nullptr) waterTile = new QPixmap(":/resources/images/water.png");
+  if (splashHit == nullptr) splashHit = new QPixmap(":/resources/images/splash-hit.png");
+  if (splashMiss == nullptr) splashMiss = new QPixmap(":/resources/images/splash-miss.png");
+  if (splashDrowned == nullptr) splashDrowned = new QPixmap(":/resources/images/splash-drowned.png");
 
   if (horizontalShips[0] == nullptr) horizontalShips[0] = new QPixmap(":/resources/images/H1.png");
   if (horizontalShips[1] == nullptr) horizontalShips[1] = new QPixmap(":/resources/images/H2.png");

@@ -11,6 +11,6 @@ void Application::startGame() {
 
   QTimer::singleShot(1500, [&] () {
     ui -> pagesWidget -> setCurrentIndex(7); // Go to game page.
-    ui -> boardGameMy -> redrawBoard(*boardMy);
+    ui -> boardGameMy -> redrawShips(*boardMy);
   });
 }

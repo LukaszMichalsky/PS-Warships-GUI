@@ -32,6 +32,7 @@ class GraphicBoard : public QGraphicsView {
     QGraphicsItemGroup* groupGhostItems = nullptr;
     QGraphicsItemGroup* groupBoardItems = nullptr;
     QGraphicsItemGroup* groupShips = nullptr;
+    QGraphicsItemGroup* groupShoots = nullptr;
     QVector<ShipGroup*> renderedGroups;
 
     bool ghostModeEnabled = false; // Ghost mode allows user to see ship position when moving cursor on board.
@@ -59,12 +60,18 @@ class GraphicBoard : public QGraphicsView {
 
     static QVector<QPixmap*> horizontalShips;
     static QVector<QPixmap*> verticalShips;
+
     static QPixmap* waterTile;
+    static QPixmap* splashHit;
+    static QPixmap* splashMiss;
+    static QPixmap* splashDrowned;
 
     bool getClickedPoint(QMouseEvent *inputEvent, Point& outputPoint);
-    void redrawBoard(const Board& targetBoard);
     void setBoardState(GraphicBoardState newState);
     Board* getManualBoard();
+
+    void redrawShips(const Board& targetBoard);
+    void redrawShoots(const Board& targetBoard);
 
     void setGhostMode(ship_size_t shipSize, ShipDirection shipDirection);
     void disableGhostMode();

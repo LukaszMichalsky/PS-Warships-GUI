@@ -7,7 +7,7 @@ void GraphicBoard::clickStateCreating(QMouseEvent *event) {
     bool added = ShipGroup::add(&manualBuildBoard, selectedPoint, ghostModeCurrentSize, ghostModeCurrentDirection);
 
     if (added) {
-      redrawBoard(manualBuildBoard);
+      redrawShips(manualBuildBoard);
       manualBuildShipsLeft--;
     }
   }

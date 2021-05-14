@@ -11,5 +11,8 @@
         <file>resources/images/V4.png</file>
         <file>resources/animations/shoot-hit.gif</file>
         <file>resources/animations/shoot-miss.gif</file>
+        <file>resources/images/splash-hit.png</file>
+        <file>resources/images/splash-miss.png</file>
+        <file>resources/images/splash-drowned.png</file>
     </qresource>
 </RCC>
