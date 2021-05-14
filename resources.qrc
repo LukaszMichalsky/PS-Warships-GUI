@@ -9,5 +9,7 @@
         <file>resources/images/V3.png</file>
         <file>resources/images/H4.png</file>
         <file>resources/images/V4.png</file>
+        <file>resources/animations/shoot-hit.gif</file>
+        <file>resources/animations/shoot-miss.gif</file>
     </qresource>
 </RCC>
