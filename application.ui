@@ -142,7 +142,7 @@ QWidget[TRANSPARENT=&quot;true&quot;] {
      </rect>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="pageMain">
      <widget class="QLabel" name="labelMainTitle">
@@ -635,6 +635,19 @@ Jakub WYCIŚLIK</string>
       </property>
       <property name="text">
        <string>RE-RANDOMIZE</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnBuildRandomContinue">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>430</y>
+        <width>200</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>CONTINUE</string>
       </property>
      </widget>
     </widget>

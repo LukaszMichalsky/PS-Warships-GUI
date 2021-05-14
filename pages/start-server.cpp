@@ -24,6 +24,7 @@ void Application::on_btnStartServer_released() {
   serverListener -> listen(QHostAddress::Any, port);
 
   connect(serverListener, &QTcpServer::newConnection, [=] () {
+    clientSocket = serverListener -> nextPendingConnection();
     ui -> labelWaiting -> setText("Player connected!");
 
     QTimer::singleShot(1500, [=] () {

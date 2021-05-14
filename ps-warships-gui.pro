@@ -12,6 +12,7 @@ SOURCES += \
   graphic-board/init-resources.cpp \
   graphic-board/redraw-board.cpp \
   logic/logic.cpp \
+  logic/network-data.cpp \
   logic/point.cpp \
   logic/randomize-board.cpp \
   main.cpp \

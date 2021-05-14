@@ -43,17 +43,20 @@ class Application : public QMainWindow {
     // Board random builder UI controls slots.
     void on_btnBuildRandomReturn_released();
     void on_btnBuildRandomRerandomize_released();
+    void on_btnBuildRandomContinue_released();
 
     // Board manual builder UI controls slots.
     void on_btnBuildManualReturn_released();
+    void on_btnBuildManualContinue_released();
 
   private:
     Ui::Application *ui;
     QString playerUsername;
 
     QTcpServer* serverListener = nullptr;
-    QTcpSocket* serverSocket = nullptr;
     QTcpSocket* clientSocket = nullptr;
 
     void randomizeBoard(Board& targetBoard);
+    QByteArray waitForNetworkData();
+    void sendNetworkData(const QByteArray &data);
 };

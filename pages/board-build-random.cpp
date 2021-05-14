@@ -16,3 +16,17 @@ void Application::on_btnBuildRandomRerandomize_released() {
   ui -> btnBuildRandomRerandomize -> setDisabled(false);
   ui -> boardBuildRandom -> redrawBoard(randomizedBoard);
 }
+
+void Application::on_btnBuildRandomContinue_released() {
+  ui -> pagesWidget -> setCurrentIndex(3); // Go to waiting area
+
+  ui -> labelWaitingUsername -> setText("Waiting for second player");
+  ui -> labelWaiting -> setText("...");
+
+  QByteArray myUsername = playerUsername.toUtf8();
+  sendNetworkData(myUsername);
+  QString playerUsername = QString::fromUtf8(waitForNetworkData());
+
+  ui -> labelWaitingUsername -> setText(QString("Player %1 is ready!").arg(playerUsername));
+  ui -> labelWaiting -> setText("Starting game...");
+}
