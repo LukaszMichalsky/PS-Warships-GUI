@@ -64,13 +64,13 @@ void GraphicBoard::redrawShoots(const Board &targetBoard) {
 
       switch ((int) fieldState) {
         case (int) ShipState::STATE_HIT: {
-          splashItem = new QGraphicsPixmapItem(*splashHit); perror("HIT");
+          splashItem = new QGraphicsPixmapItem(*splashHit);
           break;
         } case (int) ShipState::STATE_MISSED: {
-          splashItem = new QGraphicsPixmapItem(*splashMiss); perror("MISSED");
+          splashItem = new QGraphicsPixmapItem(*splashMiss);
           break;
         } case (int) ShipState::STATE_DROWNED: {
-          splashItem = new QGraphicsPixmapItem(*splashDrowned); perror("DROWNED");
+          splashItem = new QGraphicsPixmapItem(*splashDrowned);
         }
       }
 

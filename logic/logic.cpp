@@ -194,11 +194,11 @@ ShipGroup* ShipGroup::add(Board *targetBoard, Point topLeftPoint, ship_size_t gr
 
   for (board_size_t s = 0; s < groupSize; s++) {
     Point newShipPoint = Point(pointX + deltaX * s, pointY + deltaY * s);
-    Ship newShip = Ship(newShipPoint, ShipState::STATE_NORMAL);
+    Ship newShip(newShipPoint, ShipState::STATE_NORMAL);
 
     newShip.setShipGroup(newGroup);
     targetBoard -> setShip(newShip);
-    newGroup -> shipPointers.push_back(&newShip);
+    newGroup -> shipPointers.push_back(targetBoard -> getShipPointer(newShipPoint));
   }
 
   return newGroup;
