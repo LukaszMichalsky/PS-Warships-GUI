@@ -11,11 +11,13 @@ SOURCES += \
   graphic-board/init-board.cpp \
   graphic-board/init-resources.cpp \
   graphic-board/redraw.cpp \
+  logic/get-opponent-action.cpp \
   logic/logic.cpp \
   logic/network-data.cpp \
   logic/opponent-board-field-selected.cpp \
   logic/point.cpp \
   logic/randomize-board.cpp \
+  logic/shooting.cpp \
   logic/start-game.cpp \
   main.cpp \
   application.cpp \

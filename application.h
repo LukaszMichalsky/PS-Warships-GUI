@@ -49,7 +49,11 @@ class Application : public QMainWindow {
     void on_btnBuildManualReturn_released();
     void on_btnBuildManualContinue_released();
 
+    // Game phase page UI controls slots.
+    void on_btnGameShoot_released();
+
     // Other slots
+    void getOpponentAction();
     void opponentBoardFieldSelected(Point& selectedPoint);
 
   private:
@@ -68,4 +72,7 @@ class Application : public QMainWindow {
 
     Board* boardMy = nullptr;
     Board* boardOpponent = new Board();
+
+    board_size_t myDrownedShips = 0;
+    Point pointToShoot = Point(0, 0);
 };

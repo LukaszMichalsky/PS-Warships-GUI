@@ -10,4 +10,7 @@ void Application::opponentBoardFieldSelected(Point& selectedPoint) {
 
   ui -> labelGameHint -> setText(QString("Selected field (%1, %2) - ready to shoot!").arg(X).arg(Y));
   ui -> btnGameShoot -> setEnabled(true);
+
+  pointToShoot.setX(selectedPoint.getX());
+  pointToShoot.setY(selectedPoint.getY());
 }

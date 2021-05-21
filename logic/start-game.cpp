@@ -16,6 +16,7 @@ void Application::startGame() {
 
     if (serverListener == nullptr) { // I am the client.
       ui -> labelGameHint -> setText("Waiting for opponent's turn...");
+      getOpponentAction();
     } else { // I am the server.
       ui -> boardGameOpponent -> setBoardState(GraphicBoardState::STATE_PLAYING);
       ui -> labelGameHint -> setText("Select field for attacking on opponent's board...");

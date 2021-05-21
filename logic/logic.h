@@ -38,7 +38,6 @@ class Board {
     board_size_t boardSize = 10;
 
     bool checkPointExists(Point point) const;
-    bool setShip(Ship newShip);
 
     friend class Ship;
     friend class ShipGroup;
@@ -52,6 +51,7 @@ class Board {
 
     void fillShips(ShipState newState);
     bool isFieldValidForNewShip(Point point);
+    bool setShip(Ship newShip);
 
     bool shoot(bool& wasTargetHit, Point point);
     QVector<Ship*> getNeighborsPointers(Point point);
