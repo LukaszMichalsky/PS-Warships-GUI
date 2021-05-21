@@ -82,5 +82,6 @@ class GraphicBoard : public QGraphicsView {
     void mouseReleaseEvent(QMouseEvent *event) override;
 
   signals:
+    void getSelectedPoint(Point& selectedPoint);
     void manualBoardBuildFinished();
 };

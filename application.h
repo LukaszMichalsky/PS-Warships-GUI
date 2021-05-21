@@ -49,6 +49,9 @@ class Application : public QMainWindow {
     void on_btnBuildManualReturn_released();
     void on_btnBuildManualContinue_released();
 
+    // Other slots
+    void opponentBoardFieldSelected(Point& selectedPoint);
+
   private:
     Ui::Application *ui;
     QString playerUsername;

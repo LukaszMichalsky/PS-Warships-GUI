@@ -124,6 +124,13 @@ QWidget[TRANSPARENT=&quot;true&quot;] {
 
 /* ID selectors */
 
+#labelGameHint {
+	font-size: 12px;
+	font-weight: bold;
+
+	qproperty-alignment: &quot;AlignCenter | AlignBottom&quot;;
+}
+
 #labelMainAuthors {
 	padding-bottom: 5px;
 	padding-right: 5px;
@@ -744,7 +751,7 @@ Jakub WYCIŚLIK</string>
        </rect>
       </property>
       <property name="text">
-       <string>Game phase</string>
+       <string>Label</string>
       </property>
       <property name="BORDER_BOTTOM" stdset="0">
        <bool>true</bool>
@@ -815,6 +822,38 @@ Jakub WYCIŚLIK</string>
       </property>
       <property name="text">
        <string>Opponent's board</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnGameShoot">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>420</y>
+        <width>200</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>SHOOT</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelGameHint">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>470</y>
+        <width>760</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>HINT LABEL</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignBottom|Qt::AlignCenter|Qt::AlignHCenter|Qt::AlignVCenter</set>
       </property>
      </widget>
     </widget>

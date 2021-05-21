@@ -21,6 +21,8 @@ QByteArray Application::waitForNetworkData() {
 
     return message;
   }
+
+  return QByteArray();
 }
 
 void Application::sendNetworkData(const QByteArray &data) {

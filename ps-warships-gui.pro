@@ -13,6 +13,7 @@ SOURCES += \
   graphic-board/redraw.cpp \
   logic/logic.cpp \
   logic/network-data.cpp \
+  logic/opponent-board-field-selected.cpp \
   logic/point.cpp \
   logic/randomize-board.cpp \
   logic/start-game.cpp \

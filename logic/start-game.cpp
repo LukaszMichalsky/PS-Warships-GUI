@@ -12,5 +12,15 @@ void Application::startGame() {
   QTimer::singleShot(1500, [&] () {
     ui -> pagesWidget -> setCurrentIndex(7); // Go to game page.
     ui -> boardGameMy -> redrawShips(*boardMy);
+    ui -> labelGameTitle -> setText("Playing with: " + otherPlayerUsername);
+
+    if (serverListener == nullptr) { // I am the client.
+      ui -> labelGameHint -> setText("Waiting for opponent's turn...");
+    } else { // I am the server.
+      ui -> boardGameOpponent -> setBoardState(GraphicBoardState::STATE_PLAYING);
+      ui -> labelGameHint -> setText("Select field for attacking on opponent's board...");
+    }
+
+    connect(ui -> boardGameOpponent, &GraphicBoard::getSelectedPoint, this, &Application::opponentBoardFieldSelected);
   });
 }

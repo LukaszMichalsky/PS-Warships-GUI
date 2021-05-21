@@ -84,6 +84,7 @@ void GraphicBoard::mouseReleaseEvent(QMouseEvent *event) {
   switch (boardState) {
     case GraphicBoardState::STATE_NONE: {
       // Do nothing
+      break;
     } case GraphicBoardState::STATE_PLAYING: {
       clickStatePlaying(event);
       break;
