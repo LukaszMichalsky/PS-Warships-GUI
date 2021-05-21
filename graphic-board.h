@@ -68,6 +68,8 @@ class GraphicBoard : public QGraphicsView {
 
     bool getClickedPoint(QMouseEvent *inputEvent, Point& outputPoint);
     void setBoardState(GraphicBoardState newState);
+
+    quint16 getTotalFieldSize();
     Board* getManualBoard();
 
     void redrawShips(const Board& targetBoard);

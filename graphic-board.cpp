@@ -34,6 +34,10 @@ Board* GraphicBoard::getManualBoard() {
   return &manualBuildBoard;
 }
 
+quint16 GraphicBoard::getTotalFieldSize() {
+  return totalFieldSize;
+}
+
 void GraphicBoard::keyReleaseEvent(QKeyEvent *event) {
   if (ghostModeEnabled == true) {
     if (event -> key() == Qt::Key::Key_R) {

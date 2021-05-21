@@ -4,6 +4,7 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
+#include <QMovie>
 #include <QRandomGenerator>
 #include <QTcpServer>
 #include <QTcpSocket>
@@ -53,6 +54,7 @@ class Application : public QMainWindow {
     void on_btnGameShoot_released();
 
     // Other slots
+    void animateAttack(Point attackPoint, bool thisPlayer, bool missedShoot);
     void getOpponentAction();
     void opponentBoardFieldSelected(Point& selectedPoint);
 
@@ -75,4 +77,6 @@ class Application : public QMainWindow {
 
     board_size_t myDrownedShips = 0;
     Point pointToShoot = Point(0, 0);
+    QMovie* animation = nullptr;
+    QString* lastAttackState = new QString();
 };

@@ -4,6 +4,7 @@
 Application::Application(QWidget *parent) : QMainWindow(parent), ui(new Ui::Application) {
   ui -> setupUi(this);
   ui -> pagesWidget -> setCurrentIndex(0);
+  ui -> labelPID -> setText(QString("Application PID: %1").arg(QCoreApplication::applicationPid()));
 }
 
 Application::~Application() {

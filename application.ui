@@ -124,6 +124,11 @@ QWidget[TRANSPARENT=&quot;true&quot;] {
 
 /* ID selectors */
 
+
+#labelGameAnimation {
+	background: transparent;
+}
+
 #labelGameHint {
 	font-size: 12px;
 	font-weight: bold;
@@ -136,6 +141,15 @@ QWidget[TRANSPARENT=&quot;true&quot;] {
 	padding-right: 5px;
 
 	qproperty-alignment: &quot;AlignRight | AlignBottom&quot;;
+}
+
+#labelPID {
+	color: #555555;
+
+	font-size: 12px;
+	font-weight: bold;
+
+	qproperty-alignment: &quot;AlignLeft | AlignBottom&quot;;
 }</string>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -149,7 +163,7 @@ QWidget[TRANSPARENT=&quot;true&quot;] {
      </rect>
     </property>
     <property name="currentIndex">
-     <number>7</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="pageMain">
      <widget class="QLabel" name="labelMainTitle">
@@ -216,6 +230,22 @@ Jakub WYCIŚLIK</string>
       </property>
       <property name="text">
        <string>JOIN GAME</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelPID">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>440</y>
+        <width>200</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Application PID</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
       </property>
      </widget>
     </widget>
@@ -751,7 +781,7 @@ Jakub WYCIŚLIK</string>
        </rect>
       </property>
       <property name="text">
-       <string>Label</string>
+       <string>Game Phase Title</string>
       </property>
       <property name="BORDER_BOTTOM" stdset="0">
        <bool>true</bool>
@@ -854,6 +884,19 @@ Jakub WYCIŚLIK</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignBottom|Qt::AlignCenter|Qt::AlignHCenter|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelGameAnimation">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>70</y>
+        <width>25</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </widget>

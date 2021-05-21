@@ -16,6 +16,36 @@
 
 */
 
+void Application::animateAttack(Point attackPoint, bool thisPlayer, bool missedShoot) {
+  int baseX = thisPlayer == true ? 20 : 440;
+  int baseY = 70;
+  int fieldSize = ui -> boardGameMy -> getTotalFieldSize();
+
+  baseX += 35;
+  baseY += 37;
+
+  baseX += attackPoint.getX() * fieldSize;
+  baseY += attackPoint.getY() * fieldSize;
+
+  if (animation != nullptr) {
+    delete animation;
+  }
+
+  if (missedShoot == true) {
+    animation = new QMovie(":/resources/animations/shoot-miss.gif");
+  } else {
+    animation = new QMovie(":/resources/animations/shoot-hit.gif");
+  }
+
+  ui -> labelGameAnimation -> move(baseX, baseY);
+  ui -> labelGameAnimation -> setMovie(animation);
+
+  ui -> boardGameMy -> redrawShoots(*boardMy);
+  ui -> boardGameOpponent -> redrawShoots(*boardOpponent);
+
+  animation -> start();
+}
+
 void Application::getOpponentAction() {
   QByteArray incomingData = waitForNetworkData();
   QString incomingString = QString::fromUtf8(incomingData);
@@ -30,10 +60,13 @@ void Application::getOpponentAction() {
     ShipState shipStateAfterShoot = boardMy -> getShipPointer(Point(attackX, attackY)) -> getShipState();
 
     if (shipStateAfterShoot == ShipState::STATE_MISSED) {
+      animateAttack(Point(attackX, attackY), true, true);
       sendNetworkData(QString("ATTACK_RESPONSE_%1_%2_MISSED").arg(attackX).arg(attackY).toUtf8());
     } else if (shipStateAfterShoot == ShipState::STATE_HIT) {
+      animateAttack(Point(attackX, attackY), true, false);
       sendNetworkData(QString("ATTACK_RESPONSE_%1_%2_HIT").arg(attackX).arg(attackY).toUtf8());
     } else if (shipStateAfterShoot == ShipState::STATE_DROWNED) {
+      animateAttack(Point(attackX, attackY), true, false);
       myDrownedShips++;
 
       if (myDrownedShips < 10) {
@@ -43,9 +76,10 @@ void Application::getOpponentAction() {
       }
     }
 
-    ui -> boardGameMy -> redrawShoots(*boardMy);
-    ui -> boardGameOpponent -> setBoardState(GraphicBoardState::STATE_PLAYING);
-    ui -> labelGameHint -> setText("Select field for attacking on opponent's board...");
+    QTimer::singleShot(2000, [&] () {
+      ui -> boardGameOpponent -> setBoardState(GraphicBoardState::STATE_PLAYING);
+      ui -> labelGameHint -> setText("Select field for attacking on opponent's board...");
+    });
   }
 
   if (stringData[0] == "ATTACK" && stringData[1] == "RESPONSE") {
@@ -54,18 +88,28 @@ void Application::getOpponentAction() {
 
     if (stringData[4] == "MISSED") {
       boardOpponent -> setShip(Ship(Point(attackX, attackY), ShipState::STATE_MISSED));
+      animateAttack(Point(attackX, attackY), false, true);
     } else if (stringData[4] == "HIT") {
       boardOpponent -> setShip(Ship(Point(attackX, attackY), ShipState::STATE_HIT));
+      animateAttack(Point(attackX, attackY), false, false);
     } else if (stringData[4] == "DROWNED") {
       boardOpponent -> setShip(Ship(Point(attackX, attackY), ShipState::STATE_DROWNED));
+      animateAttack(Point(attackX, attackY), false, false);
+    } else if (stringData[4] == "WIN") {
+      boardOpponent -> setShip(Ship(Point(attackX, attackY), ShipState::STATE_DROWNED));
+      animateAttack(Point(attackX, attackY), false, false);
+
+      delete lastAttackState;
+      lastAttackState = new QString("WIN");
     }
 
-    ui -> boardGameOpponent -> redrawShoots(*boardOpponent);
-    ui -> boardGameOpponent -> setBoardState(GraphicBoardState::STATE_NONE);
-    ui -> btnGameShoot -> setEnabled(false);
+    QTimer::singleShot(2000, [&] () {
+      ui -> boardGameOpponent -> setBoardState(GraphicBoardState::STATE_NONE);
+      ui -> btnGameShoot -> setEnabled(false);
 
-    if (stringData[4] != "WIN") {
-      getOpponentAction();
-    }
+      if (*lastAttackState != "WIN") {
+        getOpponentAction();
+      }
+    });
   }
 }
