@@ -124,11 +124,6 @@ QWidget[TRANSPARENT=&quot;true&quot;] {
 
 /* ID selectors */
 
-
-#labelGameAnimation {
-	background: transparent;
-}
-
 #labelGameHint {
 	font-size: 12px;
 	font-weight: bold;
@@ -163,7 +158,7 @@ QWidget[TRANSPARENT=&quot;true&quot;] {
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="pageMain">
      <widget class="QLabel" name="labelMainTitle">
@@ -897,6 +892,25 @@ Jakub WYCIŚLIK</string>
       </property>
       <property name="text">
        <string/>
+      </property>
+      <property name="TRANSPARENT" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnGameChat">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>460</y>
+        <width>100</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>CHAT</string>
       </property>
      </widget>
     </widget>

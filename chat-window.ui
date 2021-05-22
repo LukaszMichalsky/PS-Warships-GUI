@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ChatWindow</class>
+ <widget class="QStackedWidget" name="ChatWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>300</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>300</width>
+    <height>400</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>300</width>
+    <height>400</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>PS Warships GUI - Chat</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* Universal selector */
+
+* {
+	background-color: #444444;
+	color: #DDDDDD;
+
+	font-family: &quot;Consolas&quot;;
+	font-size: 16px;
+}
+
+/* Type selectors */
+
+QLabel {
+	font-size: 20px;
+
+	qproperty-alignment: &quot;AlignCenter | AlignVCenter&quot;;
+}
+
+QPushButton {
+	background-color: #666666;
+
+	border-color: #008888;
+	border-style: solid;
+	border-width: 3px;
+
+	font-weight: bold;
+}
+
+QPushButton:hover {
+	border-color: #00FFFF;
+}
+
+QPushButton:pressed {
+	background-color: #AAAAAA;
+	border-color: #FF9900;
+
+	color: #444444;
+}
+
+QPushButton:disabled {
+	background-color: #AAAAAA;
+	border-color: #000000;
+
+	color: #444444;
+}
+
+QLineEdit {
+	border: 0;
+
+	border-bottom-color: #FF9900;
+	border-bottom-style: solid;
+	border-bottom-width: 3px;
+
+	padding: 5px;
+	qproperty-alignment: &quot;AlignLeft | AlignVCenter&quot;;
+}
+
+QListWidget {
+	background-color: #555555;
+	border: 0;
+
+	font-size: 14px;
+
+	padding: 5px;
+}</string>
+  </property>
+  <widget class="QWidget" name="pageChat">
+   <widget class="QListWidget" name="listMessages">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>260</width>
+      <height>320</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnSendMessage">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>350</y>
+      <width>60</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Send</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="textMessage">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>350</y>
+      <width>190</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>Message</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

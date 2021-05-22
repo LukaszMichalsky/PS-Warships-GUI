@@ -3,6 +3,10 @@
 
 QByteArray Application::waitForNetworkData() {
   while (clientSocket -> bytesAvailable() == 0) {
+    if (ui -> centralWidget -> isVisible() == false) {
+      return QByteArray();
+    }
+
     QCoreApplication::processEvents();
     QThread::msleep(10);
   }

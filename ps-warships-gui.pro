@@ -3,6 +3,7 @@ CONFIG += c++11
 DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
+  chat-window.cpp \
   graphic-board.cpp \
   graphic-board/clickedWithState/clicked-creating.cpp \
   graphic-board/clickedWithState/clicked-playing.cpp \
@@ -24,18 +25,21 @@ SOURCES += \
   pages/board-build-manual.cpp \
   pages/board-build-random.cpp \
   pages/board-build.cpp \
+  pages/game-phase.cpp \
   pages/join-game.cpp \
   pages/main-menu.cpp \
   pages/start-server.cpp
 
 HEADERS += \
   application.h \
+  chat-window.h \
   graphic-board.h \
   logic/logic.h \
   logic/point.h
 
 FORMS += \
-  application.ui
+  application.ui \
+  chat-window.ui
 
 RESOURCES += \
   resources.qrc

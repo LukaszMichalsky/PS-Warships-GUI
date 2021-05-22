@@ -51,6 +51,10 @@ void Application::getOpponentAction() {
   QString incomingString = QString::fromUtf8(incomingData);
   QStringList stringData = incomingString.split("_", Qt::SkipEmptyParts, Qt::CaseSensitivity::CaseSensitive);
 
+  if (incomingData.isEmpty() == true) {
+    return; // Application is stopping.
+  }
+
   if (stringData[0] == "ATTACK" && stringData[1] == "REQUEST") {
     board_size_t attackX = stringData[2].toUInt();
     board_size_t attackY = stringData[3].toUInt();

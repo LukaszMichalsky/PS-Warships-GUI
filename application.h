@@ -1,5 +1,6 @@
 #pragma once
 
+#include "chat-window.h"
 #include "logic/logic.h"
 
 #include <QMainWindow>
@@ -52,6 +53,7 @@ class Application : public QMainWindow {
 
     // Game phase page UI controls slots.
     void on_btnGameShoot_released();
+    void on_btnGameChat_released();
 
     // Other slots
     void animateAttack(Point attackPoint, bool thisPlayer, bool missedShoot);
@@ -62,6 +64,7 @@ class Application : public QMainWindow {
     Ui::Application *ui;
     QString playerUsername;
     QString otherPlayerUsername;
+    ChatWindow* chatWindow = new ChatWindow(nullptr);
 
     QTcpServer* serverListener = nullptr;
     QTcpSocket* clientSocket = nullptr;
