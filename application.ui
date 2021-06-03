@@ -158,7 +158,7 @@ QWidget[TRANSPARENT=&quot;true&quot;] {
      </rect>
     </property>
     <property name="currentIndex">
-     <number>7</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="pageMain">
      <widget class="QLabel" name="labelMainTitle">
@@ -911,6 +911,62 @@ Jakub WYCIŚLIK</string>
       </property>
       <property name="text">
        <string>CHAT</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="pageEnd">
+     <widget class="QLabel" name="labelEndTitle">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>780</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Game finished</string>
+      </property>
+      <property name="BORDER_BOTTOM" stdset="0">
+       <bool>true</bool>
+      </property>
+      <property name="STYLE_TITLE" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="labelEnd">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>260</y>
+        <width>480</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>STATUS</string>
+      </property>
+      <property name="BORDER_BOTTOM" stdset="0">
+       <bool>true</bool>
+      </property>
+      <property name="BORDER_RIGHT" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnEndQuit">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>430</y>
+        <width>200</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>QUIT</string>
       </property>
      </widget>
     </widget>

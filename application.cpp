@@ -10,3 +10,7 @@ Application::Application(QWidget *parent) : QMainWindow(parent), ui(new Ui::Appl
 Application::~Application() {
   delete ui;
 }
+
+void Application::on_btnEndQuit_released() {
+  QCoreApplication::quit();
+}

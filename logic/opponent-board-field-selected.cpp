@@ -4,7 +4,6 @@
 QVector<char> characters({'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'});
 
 void Application::opponentBoardFieldSelected(Point& selectedPoint) {
-
   char X = characters[selectedPoint.getX()];
   board_size_t Y = selectedPoint.getY() + 1;
 

@@ -55,6 +55,9 @@ class Application : public QMainWindow {
     void on_btnGameShoot_released();
     void on_btnGameChat_released();
 
+    // Game end UI controls slots.
+    void on_btnEndQuit_released();
+
     // Other slots
     void animateAttack(Point attackPoint, bool thisPlayer, bool missedShoot);
     void getOpponentAction();
@@ -77,6 +80,7 @@ class Application : public QMainWindow {
 
     Board* boardMy = nullptr;
     Board* boardOpponent = new Board();
+    void setDrownedShip(Board& targetBoard, Point targetPoint);
 
     board_size_t myDrownedShips = 0;
     Point pointToShoot = Point(0, 0);

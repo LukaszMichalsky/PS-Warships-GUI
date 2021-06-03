@@ -18,6 +18,7 @@ SOURCES += \
   logic/opponent-board-field-selected.cpp \
   logic/point.cpp \
   logic/randomize-board.cpp \
+  logic/set-drowned-ship.cpp \
   logic/shooting.cpp \
   logic/start-game.cpp \
   main.cpp \

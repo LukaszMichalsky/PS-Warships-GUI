@@ -81,8 +81,20 @@ void Application::getOpponentAction() {
     }
 
     QTimer::singleShot(2000, [&] () {
-      ui -> boardGameOpponent -> setBoardState(GraphicBoardState::STATE_PLAYING);
-      ui -> labelGameHint -> setText("Select field for attacking on opponent's board...");
+      if (myDrownedShips < 10) {
+        ui -> boardGameOpponent -> setBoardState(GraphicBoardState::STATE_PLAYING);
+        ui -> labelGameHint -> setText("Select field for attacking on opponent's board...");
+      } else {
+        ui -> pagesWidget -> setCurrentIndex(8); // Go to end page (as loser).
+        ui -> labelEnd -> setText("You LOST the game...");
+
+        clientSocket -> readAll();
+        clientSocket -> flush();
+        clientSocket -> disconnectFromHost();
+        delete clientSocket;
+
+        ui -> btnEndQuit -> setEnabled(true);
+      }
     });
   }
 
@@ -98,21 +110,33 @@ void Application::getOpponentAction() {
       animateAttack(Point(attackX, attackY), false, false);
     } else if (stringData[4] == "DROWNED") {
       boardOpponent -> setShip(Ship(Point(attackX, attackY), ShipState::STATE_DROWNED));
+      setDrownedShip(*boardOpponent, Point(attackX, attackY));
       animateAttack(Point(attackX, attackY), false, false);
     } else if (stringData[4] == "WIN") {
       boardOpponent -> setShip(Ship(Point(attackX, attackY), ShipState::STATE_DROWNED));
+      setDrownedShip(*boardOpponent, Point(attackX, attackY));
       animateAttack(Point(attackX, attackY), false, false);
 
       delete lastAttackState;
       lastAttackState = new QString("WIN");
     }
 
-    QTimer::singleShot(2000, [&] () {
-      ui -> boardGameOpponent -> setBoardState(GraphicBoardState::STATE_NONE);
-      ui -> btnGameShoot -> setEnabled(false);
+    ui -> boardGameOpponent -> setBoardState(GraphicBoardState::STATE_NONE);
+    ui -> btnGameShoot -> setEnabled(false);
 
+    QTimer::singleShot(2000, [&] () {
       if (*lastAttackState != "WIN") {
         getOpponentAction();
+      } else {
+        ui -> pagesWidget -> setCurrentIndex(8); // Go to end page (as winner).
+        ui -> labelEnd -> setText("You WIN the game! CONGRATULATIONS!");
+
+        clientSocket -> readAll();
+        clientSocket -> flush();
+        clientSocket -> disconnectFromHost();
+        delete clientSocket;
+
+        ui -> btnEndQuit -> setEnabled(true);
       }
     });
   }
