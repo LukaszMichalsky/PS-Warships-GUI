@@ -16,3 +16,15 @@ ChatWindow::ChatWindow(QWidget* parent) : QStackedWidget(parent), ui(new Ui::Cha
 ChatWindow::~ChatWindow() {
   delete ui;
 }
+
+void ChatWindow::addMessage(QString message) {
+  QListWidgetItem* newItem = new QListWidgetItem();
+  newItem -> setText(message);
+
+  ui -> listMessages -> addItem(newItem);
+}
+
+void ChatWindow::on_btnSendMessage_released() {
+  emit messageSent(ui -> textMessage -> text());
+  ui -> textMessage -> clear();
+}

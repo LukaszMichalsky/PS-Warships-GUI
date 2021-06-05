@@ -13,6 +13,14 @@ class ChatWindow : public QStackedWidget {
     explicit ChatWindow(QWidget* parent = nullptr);
     ~ChatWindow();
 
+    void addMessage(QString message);
+
   private:
     Ui::ChatWindow *ui;
+
+  signals:
+    void messageSent(QString message);
+
+  private slots:
+    void on_btnSendMessage_released();
 };
