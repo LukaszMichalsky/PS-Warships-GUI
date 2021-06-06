@@ -23,5 +23,10 @@ void Application::startGame() {
     }
 
     connect(ui -> boardGameOpponent, &GraphicBoard::getSelectedPoint, this, &Application::opponentBoardFieldSelected);
+    connect(clientSocket, &QTcpSocket::readyRead, this, &Application::getOpponentAction);
+
+    connect(chatWindow, &ChatWindow::messageSent, [=] (QString message) {
+      sendNetworkData(QString("CHAT_MESSAGE_%1").arg(QString("%1: %2").arg(playerUsername).arg(message)).toUtf8());
+    });
   });
 }

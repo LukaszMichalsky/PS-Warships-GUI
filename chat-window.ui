@@ -87,7 +87,7 @@ QListWidget {
 	background-color: #555555;
 	border: 0;
 
-	font-size: 14px;
+	font-size: 12px;
 
 	padding: 5px;
 }</string>

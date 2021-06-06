@@ -14,6 +14,9 @@
       - where X, Y are point coordinates (same as above)
       - where MSG is attack result, one from the following: 'DROWNED, HIT, MISSED, WIN'
 
+    3. CHAT_MESSAGE_MSG
+      - where MSG is the actual chat message
+
 */
 
 void Application::animateAttack(Point attackPoint, bool thisPlayer, bool missedShoot) {
@@ -53,6 +56,10 @@ void Application::getOpponentAction() {
 
   if (incomingData.isEmpty() == true) {
     return; // Application is stopping.
+  }
+
+  if (stringData[0] == "CHAT" && stringData[1] == "MESSAGE") {
+    chatWindow -> addMessage(stringData[2]);
   }
 
   if (stringData[0] == "ATTACK" && stringData[1] == "REQUEST") {
@@ -125,9 +132,7 @@ void Application::getOpponentAction() {
     ui -> btnGameShoot -> setEnabled(false);
 
     QTimer::singleShot(2000, [&] () {
-      if (*lastAttackState != "WIN") {
-        getOpponentAction();
-      } else {
+      if (*lastAttackState == "WIN") {
         ui -> pagesWidget -> setCurrentIndex(8); // Go to end page (as winner).
         ui -> labelEnd -> setText("You WIN the game! CONGRATULATIONS!");
 
