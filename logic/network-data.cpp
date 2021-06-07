@@ -30,6 +30,10 @@ QByteArray Application::waitForNetworkData() {
 }
 
 void Application::sendNetworkData(const QByteArray &data) {
+  if (clientSocket == nullptr) {
+    return;
+  }
+
   quint8 messageLength = data.size();
   QByteArray message;
 
