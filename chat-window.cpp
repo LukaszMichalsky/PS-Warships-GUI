@@ -22,9 +22,19 @@ void ChatWindow::addMessage(QString message) {
   newItem -> setText(message);
 
   ui -> listMessages -> addItem(newItem);
+  ui -> listMessages -> scrollToBottom();
 }
 
 void ChatWindow::on_btnSendMessage_released() {
   emit messageSent(ui -> textMessage -> text());
   ui -> textMessage -> clear();
+
+  QListWidgetItem* newItem = new QListWidgetItem();
+  QFont font = newItem -> font();
+  font.setItalic(true);
+
+  newItem -> setText("Message sent");
+  newItem -> setFont(font);
+
+  ui -> listMessages -> addItem(newItem);
 }

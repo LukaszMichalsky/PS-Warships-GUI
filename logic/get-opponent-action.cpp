@@ -60,6 +60,12 @@ void Application::getOpponentAction() {
 
   if (stringData[0] == "CHAT" && stringData[1] == "MESSAGE") {
     chatWindow -> addMessage(stringData[2]);
+
+    if (chatWindow -> isVisible() == false) {
+      chatWindow -> show();
+    } else {
+      chatWindow -> activateWindow();
+    }
   }
 
   if (stringData[0] == "ATTACK" && stringData[1] == "REQUEST") {
@@ -95,10 +101,16 @@ void Application::getOpponentAction() {
         ui -> pagesWidget -> setCurrentIndex(8); // Go to end page (as loser).
         ui -> labelEnd -> setText("You LOST the game...");
 
+        if (chatWindow -> isVisible() == true) {
+          chatWindow -> close();
+        }
+
         clientSocket -> readAll();
         clientSocket -> flush();
         clientSocket -> disconnectFromHost();
+
         delete clientSocket;
+        clientSocket = nullptr;
 
         ui -> btnEndQuit -> setEnabled(true);
       }
@@ -136,10 +148,16 @@ void Application::getOpponentAction() {
         ui -> pagesWidget -> setCurrentIndex(8); // Go to end page (as winner).
         ui -> labelEnd -> setText("You WIN the game! CONGRATULATIONS!");
 
+        if (chatWindow -> isVisible() == true) {
+          chatWindow -> close();
+        }
+
         clientSocket -> readAll();
         clientSocket -> flush();
         clientSocket -> disconnectFromHost();
+
         delete clientSocket;
+        clientSocket = nullptr;
 
         ui -> btnEndQuit -> setEnabled(true);
       }
