@@ -68,6 +68,8 @@ void Application::getOpponentAction() {
     }
   }
 
+  ui -> boardGameOpponent -> setBoardState(GraphicBoardState::STATE_NONE);
+
   if (stringData[0] == "ATTACK" && stringData[1] == "REQUEST") {
     board_size_t attackX = stringData[2].toUInt();
     board_size_t attackY = stringData[3].toUInt();
@@ -93,26 +95,17 @@ void Application::getOpponentAction() {
       }
     }
 
-    QTimer::singleShot(2000, [&] () {
+    QTimer::singleShot(2000, [=] () {
       if (myDrownedShips < 10) {
-        ui -> boardGameOpponent -> setBoardState(GraphicBoardState::STATE_PLAYING);
-        ui -> labelGameHint -> setText("Select field for attacking on opponent's board...");
+        if (shipStateAfterShoot == ShipState::STATE_MISSED) { // Opponent's attack chain stops.
+          ui -> boardGameOpponent -> setBoardState(GraphicBoardState::STATE_PLAYING);
+          ui -> labelGameHint -> setText("Select field for attacking on opponent's board...");
+        }
       } else {
         ui -> pagesWidget -> setCurrentIndex(8); // Go to end page (as loser).
         ui -> labelEnd -> setText("You LOST the game...");
 
-        if (chatWindow -> isVisible() == true) {
-          chatWindow -> close();
-        }
-
-        clientSocket -> readAll();
-        clientSocket -> flush();
-        clientSocket -> disconnectFromHost();
-
-        delete clientSocket;
-        clientSocket = nullptr;
-
-        ui -> btnEndQuit -> setEnabled(true);
+        resetGame();
       }
     });
   }
@@ -140,26 +133,22 @@ void Application::getOpponentAction() {
       lastAttackState = new QString("WIN");
     }
 
-    ui -> boardGameOpponent -> setBoardState(GraphicBoardState::STATE_NONE);
     ui -> btnGameShoot -> setEnabled(false);
 
-    QTimer::singleShot(2000, [&] () {
+    QTimer::singleShot(2000, [=] () {
       if (*lastAttackState == "WIN") {
         ui -> pagesWidget -> setCurrentIndex(8); // Go to end page (as winner).
         ui -> labelEnd -> setText("You WIN the game! CONGRATULATIONS!");
 
-        if (chatWindow -> isVisible() == true) {
-          chatWindow -> close();
+        resetGame();
+      } else {
+        ui -> labelGameHint -> setText("Select field for attacking on opponent's board...");
+
+        if (stringData[4] == "MISSED" || stringData[4] == "WIN") { // Stop attack chain (another player's turn).
+          ui -> labelGameHint -> setText("Waiting for opponent's turn...");
+        } else {
+          ui -> boardGameOpponent -> setBoardState(GraphicBoardState::STATE_PLAYING);
         }
-
-        clientSocket -> readAll();
-        clientSocket -> flush();
-        clientSocket -> disconnectFromHost();
-
-        delete clientSocket;
-        clientSocket = nullptr;
-
-        ui -> btnEndQuit -> setEnabled(true);
       }
     });
   }
