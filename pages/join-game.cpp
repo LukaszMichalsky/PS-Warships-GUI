@@ -30,6 +30,9 @@ void Application::on_btnJoinGame_released() {
   connect(clientSocket, &QTcpSocket::connected, [=] () {
     ui -> labelWaiting -> setText("Connected to server!");
 
+    serverHistory.addEntry(hostname, port);
+    serverHistory.saveToFile("server-history");
+
     QTimer::singleShot(1500, [&] () {
       ui -> pagesWidget -> setCurrentIndex(4); // Go to board building mode selection page
     });

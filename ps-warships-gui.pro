@@ -29,14 +29,16 @@ SOURCES += \
   pages/game-phase.cpp \
   pages/join-game.cpp \
   pages/main-menu.cpp \
-  pages/start-server.cpp
+  pages/start-server.cpp \
+  server-history.cpp
 
 HEADERS += \
   application.h \
   chat-window.h \
   graphic-board.h \
   logic/logic.h \
-  logic/point.h
+  logic/point.h \
+  server-history.h
 
 FORMS += \
   application.ui \

@@ -1,12 +1,14 @@
 #pragma once
 
 #include "chat-window.h"
+#include "server-history.h"
 #include "logic/logic.h"
 
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QMovie>
 #include <QRandomGenerator>
+#include <QListWidgetItem>
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QThread>
@@ -59,9 +61,7 @@ class Application : public QMainWindow {
     void on_btnEndQuit_released();
 
     // Other slots
-    void animateAttack(Point attackPoint, bool thisPlayer, bool missedShoot);
-    void getOpponentAction();
-    void opponentBoardFieldSelected(Point& selectedPoint);
+    void on_listJoinHistory_itemClicked(QListWidgetItem *item);
 
   private:
     Ui::Application *ui;
@@ -71,9 +71,11 @@ class Application : public QMainWindow {
 
     QTcpServer* serverListener = nullptr;
     QTcpSocket* clientSocket = nullptr;
+    ServerHistory serverHistory;
 
     void randomizeBoard(Board& targetBoard);
     void startGame();
+    void resetGame();
 
     QByteArray waitForNetworkData();
     void sendNetworkData(const QByteArray &data);
@@ -86,4 +88,8 @@ class Application : public QMainWindow {
     Point pointToShoot = Point(0, 0);
     QMovie* animation = nullptr;
     QString* lastAttackState = new QString();
+
+    void animateAttack(Point attackPoint, bool thisPlayer, bool missedShoot);
+    void getOpponentAction();
+    void opponentBoardFieldSelected(Point& selectedPoint);
 };
