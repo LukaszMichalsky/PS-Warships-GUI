@@ -22,6 +22,8 @@ void Application::on_btnEndQuit_released() {
 }
 
 void Application::resetGame() {
+  disconnect(clientSocket, &QTcpSocket::disconnected, this, &Application::showDisconnected);
+
   if (chatWindow -> isVisible() == true) {
     chatWindow -> close();
   }
@@ -29,10 +31,9 @@ void Application::resetGame() {
   clientSocket -> readAll();
   clientSocket -> flush();
   clientSocket -> disconnectFromHost();
+  clientSocket -> deleteLater();
 
-  delete clientSocket;
   clientSocket = nullptr;
-
   ui -> btnEndQuit -> setEnabled(true);
 }
 
@@ -41,4 +42,11 @@ void Application::on_listJoinHistory_itemClicked(QListWidgetItem *item) {
 
   ui -> textJoinGameAddress -> setText(entryList[0]);
   ui -> textJoinGamePort -> setText(entryList[1]);
+}
+
+void Application::showDisconnected() {
+  ui -> pagesWidget -> setCurrentIndex(8); // Go to end page (on disconnect).
+  ui -> labelEnd -> setText("Player has disconnected");
+
+  resetGame();
 }

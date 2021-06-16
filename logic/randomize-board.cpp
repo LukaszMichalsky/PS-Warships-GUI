@@ -5,25 +5,13 @@ void Application::randomizeBoard(Board &targetBoard) {
   Point newShipPoint(0, 0);
   ShipDirection newDirection;
 
-  for (int i = 0; i < (int) ShipCount::SHIP_SINGLE; i++) {
+  for (int i = 0; i < (int) ShipCount::SHIP_QUADRUPLE; i++) {
     while (true) {
       newShipPoint.setX(QRandomGenerator::global() -> bounded(0, 10));
       newShipPoint.setY(QRandomGenerator::global() -> bounded(0, 10));
       newDirection = (QRandomGenerator::global() -> bounded(0, 2) == 0) ? ShipDirection::DIRECTION_HORIZONTAL : ShipDirection::DIRECTION_VERTICAL;
 
-      if (ShipGroup::add(&targetBoard, newShipPoint, 1, newDirection) != nullptr) {
-        break;
-      }
-    }
-  }
-
-  for (int i = 0; i < (int) ShipCount::SHIP_DOUBLE; i++) {
-    while (true) {
-      newShipPoint.setX(QRandomGenerator::global() -> bounded(0, 10));
-      newShipPoint.setY(QRandomGenerator::global() -> bounded(0, 10));
-      newDirection = (QRandomGenerator::global() -> bounded(0, 2) == 0) ? ShipDirection::DIRECTION_HORIZONTAL : ShipDirection::DIRECTION_VERTICAL;
-
-      if (ShipGroup::add(&targetBoard, newShipPoint, 2, newDirection) != nullptr) {
+      if (ShipGroup::add(&targetBoard, newShipPoint, 4, newDirection) != nullptr) {
         break;
       }
     }
@@ -41,13 +29,25 @@ void Application::randomizeBoard(Board &targetBoard) {
     }
   }
 
-  for (int i = 0; i < (int) ShipCount::SHIP_QUADRUPLE; i++) {
+  for (int i = 0; i < (int) ShipCount::SHIP_DOUBLE; i++) {
     while (true) {
       newShipPoint.setX(QRandomGenerator::global() -> bounded(0, 10));
       newShipPoint.setY(QRandomGenerator::global() -> bounded(0, 10));
       newDirection = (QRandomGenerator::global() -> bounded(0, 2) == 0) ? ShipDirection::DIRECTION_HORIZONTAL : ShipDirection::DIRECTION_VERTICAL;
 
-      if (ShipGroup::add(&targetBoard, newShipPoint, 4, newDirection) != nullptr) {
+      if (ShipGroup::add(&targetBoard, newShipPoint, 2, newDirection) != nullptr) {
+        break;
+      }
+    }
+  }
+
+  for (int i = 0; i < (int) ShipCount::SHIP_SINGLE; i++) {
+    while (true) {
+      newShipPoint.setX(QRandomGenerator::global() -> bounded(0, 10));
+      newShipPoint.setY(QRandomGenerator::global() -> bounded(0, 10));
+      newDirection = (QRandomGenerator::global() -> bounded(0, 2) == 0) ? ShipDirection::DIRECTION_HORIZONTAL : ShipDirection::DIRECTION_VERTICAL;
+
+      if (ShipGroup::add(&targetBoard, newShipPoint, 1, newDirection) != nullptr) {
         break;
       }
     }

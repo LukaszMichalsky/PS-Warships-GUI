@@ -167,7 +167,7 @@ QWidget[TRANSPARENT=&quot;true&quot;] {
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="pageMain">
      <widget class="QLabel" name="labelMainTitle">

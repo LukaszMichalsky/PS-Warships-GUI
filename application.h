@@ -92,4 +92,5 @@ class Application : public QMainWindow {
     void animateAttack(Point attackPoint, bool thisPlayer, bool missedShoot);
     void getOpponentAction();
     void opponentBoardFieldSelected(Point& selectedPoint);
+    void showDisconnected();
 };

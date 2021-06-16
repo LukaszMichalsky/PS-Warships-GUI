@@ -20,7 +20,6 @@ void Application::on_btnJoinGame_released() {
   }
 
   ui -> pagesWidget -> setCurrentIndex(3); // Go to waiting area
-
   ui -> labelWaitingUsername -> setText("Logging as " + playerUsername);
   ui -> labelWaiting -> setText("Trying to connect to " + hostname + "...");
 
@@ -33,8 +32,10 @@ void Application::on_btnJoinGame_released() {
     serverHistory.addEntry(hostname, port);
     serverHistory.saveToFile("server-history");
 
-    QTimer::singleShot(1500, [&] () {
+    QTimer::singleShot(1500, [=] () {
       ui -> pagesWidget -> setCurrentIndex(4); // Go to board building mode selection page
     });
   });
+
+  connect(clientSocket, &QTcpSocket::disconnected, this, &Application::showDisconnected);
 }
