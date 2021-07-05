@@ -14,7 +14,7 @@
 * [X] Creating new server
 * [X] Joining existing server
 * [X] Building board by randomization
-* [ ] Building board manually
-* [ ] Playing phase
-* [ ] Asynchronous chat between players
-* [ ] Server history
+* [X] Building board manually
+* [X] Playing phase
+* [X] Asynchronous chat between players
+* [X] Server history
