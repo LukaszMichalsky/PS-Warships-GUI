@@ -66,6 +66,8 @@ void Application::getOpponentAction() {
     } else {
       chatWindow -> activateWindow();
     }
+
+    return;
   }
 
   ui -> boardGameOpponent -> setBoardState(GraphicBoardState::STATE_NONE);
